@@ -4,11 +4,12 @@ As a friend as me a question about the program,I find it a good e-commerce
 
 As you download from sourceforge.net you will meet many problems
 
-
+This is my suggestion:
 First, You should modify database.yml (database name and mysql.sock location of your computer )
-second, excute the query file solunas.sql (as some migration file lost from download )
-last excute rake db:migrate
-Then you can script/server to use it
+second, excute the query file solunas.sql (as some migration file lost from download ):
+       mysql -u root -p solunas < solunas.sql
+last excute     rake db:migrate
+Then you can    script/server to use it
 
 
 Tips this is already two uses:
