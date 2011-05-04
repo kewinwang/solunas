@@ -1,0 +1,15 @@
+
+<ul>
+
+<li><%= link_to(t(:"user_admin.manage_property"), :controller => :property, :action => :list) %></li>
+<li><%= link_to(t(:"user_admin.manage_room"), :controller => :room, :action => :list) %>
+
+<ul id="submenu">
+<li><%= link_to(t(:"user_admin.m_r_p"), :controller => :price, :action => :list) %></li>
+<li><%= link_to(t(:"user_admin.m_r_a"), :controller => :addon, :action => :list) %></li>
+<li><%= link_to(t(:"user_admin.m_r_d"), :controller => :document, :action => :list) %></li>
+</ul> </li>
+<li><%= link_to(t(:"user_admin.public_code"), :controller => :property, :action => :public_code) %></li>
+<li><%= link_to(t(:"user_admin.user_pref"),  :controller => :user, :action => :edit) %></li>
+</ul>
+

@@ -1,0 +1,36 @@
+<%= "Calendar for property".t %> <b><%= @property.name %> <%= "for".t %> <%= @month_var["name"].t %> <%= @year %>:</b><br><br>
+
+   <table id="table_calendar">
+   <tr>
+   <td nowrap><%= "Room".t %></td>
+
+
+   <% (1 .. @month_var["end"].to_i).each do |days| %>
+
+         <td id="calendar" align="center"><%= days %></td>
+
+   <% end %>
+   </tr>
+
+   <% @rooms.each do |room| %>
+     <tr>
+         <td><%= room.name %></td>
+
+         <% @calendar[room.id].each_with_index do |days, i| %>
+
+           <%if days == 1 || ::DateTime.new(@year.to_i,@month.to_i,i+1) < ::DateTime.now-(1) %>
+           <td id="calendar_not_av" align="center">B
+           <%elsif days == 2 %>
+           <td id="calendar_arrival" align="center">A
+           <%elsif days == 3 %>
+           <td id="calendar_departure" align="center">D
+           <% else %>
+           <td id="calendar_av" align="center">F
+           <% end %>
+           </td>
+           <% end %>
+       </tr>
+   <% end %>
+   </table>
+
+

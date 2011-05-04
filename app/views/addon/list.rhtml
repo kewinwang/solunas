@@ -1,0 +1,40 @@
+<h1><%= t :"addon.header_3" %></h1>
+
+<% if !@addons.empty? %>
+<table>
+  <tr>
+    <th width="10%" align="left"><%= t :"global_name" %></th>
+    <th width="10%" align="left"><%= t :"global_price" %></th>
+    <th width="15%" align="left"><%= t :"addon.payment_per_stay" %></th>
+    <th width="15%" align="left"><%= t :"addon.force_card_insert" %></th>
+    <th width="15%" align="left"><%= t :"addon.price_per_person" %></th>
+    <th width="10%" align="left"><%= t :"global_room" %></th>
+    <th width="25%"></th>
+  </tr>
+<% for addon in @addons %>
+  <tr>
+    <td width="10%" align="left"><%= addon.name %></td>
+    <td width="10%" align="left"><%= fmt_currency(addon.price) %></td>
+    <td width="15%" align="left"><%= addon.onetime %></td>
+    <td width="15%" align="left"><%= addon.force_cart %></td>
+    <td width="15%" align="left"><%= addon.per_person %></td>
+    <td width="10%" align="left"><%= addon.room.name %></td>
+    <td width="25%" align="left">| <%= link_to 'Show', :action => 'show', :id => addon %>
+    | <%= link_to t(:"global_edit"), :action => 'edit', :id => addon %>
+    | <%= link_to t(:"global_destroy"), { :action => 'destroy', :id => addon }, :confirm => 'Are you sure?' %></td>
+  </tr>
+<% end %>
+</table>
+<% end %>
+<br />
+<br />
+<div class="roundedcornr_box_284975">
+   <div class="roundedcornr_top_284975"><div></div></div>
+      <div class="roundedcornr_content_284975"><p>
+         <%= will_paginate @addons %>
+         <br />
+         <br />
+         <%= link_to t(:"addon.new"), :action => 'new' %></p>
+      </div>
+   <div class="roundedcornr_bottom_284975"><div></div></div>
+</div>

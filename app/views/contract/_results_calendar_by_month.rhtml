@@ -1,0 +1,82 @@
+<style TYPE="text/css">
+<!--
+.cal_arrival{background:#<%= user.calendar_color_arrival.to_s %>;}
+.cal_departure{background:#<%= user.calendar_color_departure.to_s %>;}
+.cal_blocked{background:#<%= user.calendar_color_blocked.to_s %>;}
+.cal_free{background:#<%= user.calendar_color_free.to_s %>;}
+table.calendar_helper{
+}
+table.calendar_helper th, td{
+  padding:1px;
+  background:#E4F2E1;
+}
+table.calendar_helper td{
+  border-top:1px solid #eaffcd;
+  border-right:1px solid #eaffcd;
+  width:25px;
+  color:#181916;
+  text-align:center;
+}
+--!>
+</style>
+
+
+<br>
+<p>
+Property: <b><%= rooms.empty? ? "N/A" : rooms.first.first.name %></b> &nbsp; | &nbsp;
+Year: <b><%= year %></b> &nbsp; | &nbsp;
+Month: <b><%= month %></b>
+</p>
+
+<% rooms.each do |room| %>
+  <div style="float:left;margin-top:5px;margin-left:3px;">
+  <%
+    contracts = room[1]
+    arrivals = []
+    departures = []
+    flag_reserved = false
+    contracts.each do |c|
+      arrivals << c.arrival.to_s
+      departures <<  c.departure.to_s
+    end
+    _date_to_i = lambda { |x| x.gsub("-", "").to_i }
+    if !arrivals.empty? && !departures.empty?
+      this_month_date = sprintf("%d-%02d-%02d", year, month, 1)
+      this_month_date = _date_to_i.call(this_month_date)
+      arrivals_ago    = arrivals.sort.find_all { |e| _date_to_i.call(e) < this_month_date }
+      departures_ago  = departures.sort.find_all { |e| _date_to_i.call(e) < this_month_date }
+      arrivals_ago.map!   { |e| e = _date_to_i.call(e) }
+      departures_ago.map! { |e| e = _date_to_i.call(e) }
+      arrivals_ago.empty? and arrivals_ago << 0
+      departures_ago.empty? and departures_ago << 0
+      if arrivals_ago.last < this_month_date &&
+         arrivals_ago.last > departures_ago.last
+         flag_reserved   = true
+      end
+    end
+  %>
+
+  Room: <b><%= room[0].name %></b>
+
+  <%=
+    calendar({:year => year, :month => month, :table_class => "calendar_helper"}) do |d|
+      ymd = sprintf("%d-%02d-%02d", d.year, d.month, d.mday)
+      if arrivals.include?(ymd)
+        flag_reserved = true
+	[d.mday, {:class => "cal_arrival"}]
+      elsif departures.include?(ymd)
+        flag_reserved = false
+	[d.mday, {:class => "cal_departure"}]
+      elsif flag_reserved
+        [d.mday, {:class => "cal_blocked"}]
+      else
+        [d.mday, {:class => "cal_free"}]
+      end
+    end
+  %>
+  </div>
+<% end %>
+
+<div style="clear:both;">&nbsp;</div>
+<br>
+<br>

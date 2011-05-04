@@ -1,0 +1,15 @@
+<h1><%= "Available rooms".t  %></h1>
+
+<%= "Your data".t %>: <%= "Arrival".t %>: <%= @arrival.strftime(@user.datestring) %>, <%= "Departure".t %>: <%= @departure.strftime(@user.datestring) %>, <%= "Adults".t %>: <%= @adults %>, <%= "Children".t %>: <%= @children %>
+ | <%= link_to 'Try again'.t, :action => 'show_form' %><br>
+<br>
+
+<% @free_rooms.each do |rooms| %>
+* <%= rooms["room"].property.name %> - <%= rooms["room"].name %>: <%= "Price".t %>: <%= fmt_currency_public(rooms["price"].to_f) %> |
+
+
+<%= link_to 'Add to Cart'.t, {:action => 'add_to_cart', :room_id => rooms['room'].id,
+                            :total => rooms["price"], :arrival => @arrival.strftime(@user.datestring), :departure => @departure.strftime(@user.datestring),
+                            :adults => @adults, :children => @children}, :class => 'addtocart' %>
+<br><br>
+<% end %>

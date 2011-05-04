@@ -1,0 +1,43 @@
+<h1>Listing customers</h1>
+
+<% if !@customers.empty? %>
+<table>
+
+  <tr>
+    <td id="listitem"><b><%= t :"global_name" %></b></td>
+    <td id="listitem"><b><%= t :"global_street" %></b></td>
+    <td id="listitem"><b><%= t :"global_city" %></b></td>
+    <td id="listitem"><b><%= t :"global_country" %></b></td>
+  </tr>
+
+<% for customer in @customers %>
+  <tr>
+  
+    <td id="listitem" width="15%"><%= customer.name %></td>
+    <td id="listitem" width="15%"><%= customer.street %></td>
+    <td id="listitem" width="15%"><%= customer.city %></td>
+    <td id="listitem" width="15%"><%= customer.country %></td>
+  
+    <td width="40%"><%= link_to t(:"global_show"), :action => 'show', :id => customer %>
+    | <%= link_to t(:"global_edit"), :action => 'edit', :id => customer %>
+    | <%= link_to t(:"global_destroy"), { :action => 'destroy', :id => customer }, :confirm => 'Are you sure?' %>
+    | <%= link_to t(:"customer.new_contract"), { :action => 'new', :controller => 'contract', :id => customer } %>
+    | <%= link_to t(:"customer.list_contracts"), { :action => 'list', :controller => 'contract', :customer_id => customer.id } %></td>
+  </tr>
+<% end %>
+</table>
+<br />
+<% end %>
+<div class="roundedcornr_box_284975">
+   <div class="roundedcornr_top_284975"><div></div></div>
+      <div class="roundedcornr_content_284975"><p>
+         <%= will_paginate @customers %>
+
+<br /><br />
+
+<%= link_to t(:"customer.new"), :action => 'new' %></p>
+      </div>
+   <div class="roundedcornr_bottom_284975"><div></div></div>
+</div>
+
+

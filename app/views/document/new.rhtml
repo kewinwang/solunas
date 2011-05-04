@@ -1,0 +1,8 @@
+<h1><%= t :"document.header" %></h1>
+
+<% form_tag :action => :create do |f| %>
+  <%= render :partial => 'form' %>
+  <%= submit_tag t(:"global_create") %>
+<% end %>
+
+<%= link_to t(:"global_back"), :action => 'list' %>

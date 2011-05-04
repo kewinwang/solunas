@@ -1,0 +1,69 @@
+<html>
+<head>
+<title>Solunas 2 Backoffice</title>
+<%= stylesheet_link_tag "admin", :media => "all" %>
+</head>
+
+<body>
+
+<table id="main" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" colspan="2" id="cell_top"><img border="0" src="/images/logo_compl.gif" align="right" width="197" height="66">
+      <br>
+    </td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2" id="cell_mid">
+    <% if session[:user_id] -%>  
+    |&nbsp; <%= link_to("Contracts",   :controller => "contract", 
+                                  :action => "list") %>&nbsp; 
+    |&nbsp; <%= link_to("Customers",   :controller => "customer", 
+                                  :action => "search") %>&nbsp;
+    |&nbsp; <%= link_to("Administration",   :controller => "login", 
+                                  :action => "admin") %>&nbsp; 
+    |&nbsp; Statistics&nbsp; 
+    |&nbsp; Help&nbsp; 
+    |&nbsp; <%= link_to("Log out",    :controller => "login",
+                                  :action => "logout") %>&nbsp; | <% end %>
+      <br>
+    </td>
+  </tr>
+
+  <tr>
+    <td id="menu"><div style="width: 150px;">  
+    <% if session[:user_id] -%>    
+    <%= render(:partial => "show_menu") %>
+    <% end -%>
+          <p align="center">
+          <script type="text/javascript"><!--
+google_ad_client = "pub-1679200329726710";
+google_ad_width = 120;
+google_ad_height = 240;
+google_ad_format = "120x240_as";
+google_ad_type = "text";
+google_ad_channel ="";
+google_color_border = "FFFFFF";
+google_color_bg = "FFFFFF";
+google_color_link = "EB8137";
+google_color_url = "175C6B";
+google_color_text = "000000";
+//--></script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></p>
+          </div>
+          </td>
+    <td id="content"><% if flash[:notice] -%>
+          <div id="notice"><%= flash[:notice] %></div>
+        <% end -%>
+	
+	<%= @content_for_layout %></td>
+  </tr>
+</table>
+<a href="http://www.solunas.org">Solunas.org</a>
+<% if session[:user_id] -%> | Logged in ID: <%= session[:user_id] %><% end %>
+<% if session[:admin]==1 -%> ADMIN <% end %>
+
+</body>
+
+</html>

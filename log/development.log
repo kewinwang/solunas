@@ -1,0 +1,349 @@
+# Logfile created on Wed May 04 17:48:21 +0800 2011  [4;36;1mSQL (47.3ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (1100.4ms)[0m   [0;1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (331.0ms)[0m   [0mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (4.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateRoles (1)
+  [4;36;1mSQL (49.3ms)[0m   [0;1mCREATE TABLE `roles` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY) ENGINE=InnoDB[0m
+  [4;35;1mSQL (59.0ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('1')[0m
+Migrating to CreateRights (2)
+  [4;36;1mSQL (73.7ms)[0m   [0;1mCREATE TABLE `rights` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('2')[0m
+Migrating to AddRolesAndRightsTables (3)
+  [4;36;1mSQL (0.9ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('3')[0m
+Migrating to CreateAdmins (4)
+  [4;35;1mSQL (101.6ms)[0m   [0mCREATE TABLE `admins` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('4')[0m
+Migrating to CreateUserAdmins (5)
+  [4;35;1mSQL (48.3ms)[0m   [0mCREATE TABLE `user_admins` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('5')[0m
+Migrating to AddUserColors (6)
+  [4;35;1mSQL (0.0ms)[0m   [0mMysql::Error: Table 'solunas.users' doesn't exist: ALTER TABLE `users` DROP `calendar_colors`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateRoles (1)
+Migrating to CreateRights (2)
+Migrating to AddRolesAndRightsTables (3)
+Migrating to CreateAdmins (4)
+Migrating to CreateUserAdmins (5)
+Migrating to AddUserColors (6)
+  [4;35;1mSQL (221.0ms)[0m   [0mALTER TABLE `users` DROP `calendar_colors`[0m
+  [4;36;1mSQL (70.3ms)[0m   [0;1mALTER TABLE `users` ADD `calendar_color_arrival` varchar(255) DEFAULT '08F7FF'[0m
+  [4;35;1mSQL (268.5ms)[0m   [0mALTER TABLE `users` ADD `calendar_color_departure` varchar(255) DEFAULT '172EFF'[0m
+  [4;36;1mSQL (109.5ms)[0m   [0;1mALTER TABLE `users` ADD `calendar_color_free` varchar(255) DEFAULT '05FF05'[0m
+  [4;35;1mSQL (80.2ms)[0m   [0mALTER TABLE `users` ADD `calendar_color_blocked` varchar(255) DEFAULT '473E34'[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('6')[0m
+Migrating to CreatePublics (7)
+  [4;35;1mSQL (39.2ms)[0m   [0mCREATE TABLE `publics` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY) ENGINE=InnoDB[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('7')[0m
+Migrating to CreateSessions (8)
+  [4;35;1mSQL (48.2ms)[0m   [0mCREATE TABLE `sessions` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `session_id` varchar(255) NOT NULL, `data` text, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (107.8ms)[0m   [0;1mCREATE INDEX `index_sessions_on_session_id` ON `sessions` (`session_id`)[0m
+  [4;35;1mSQL (91.6ms)[0m   [0mCREATE INDEX `index_sessions_on_updated_at` ON `sessions` (`updated_at`)[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('8')[0m
+Migrating to OptimisticLocking (9)
+  [4;35;1mSQL (98.2ms)[0m   [0mALTER TABLE `customers` ADD `count` int(11)[0m
+  [4;36;1mSQL (21.7ms)[0m   [0;1mALTER TABLE `customers` ADD `lock_version` int(11) DEFAULT 0[0m
+  [4;35;1mSQL (115.5ms)[0m   [0mALTER TABLE `rooms` ADD `count` int(11)[0m
+  [4;36;1mSQL (106.5ms)[0m   [0;1mALTER TABLE `rooms` ADD `lock_version` int(11) DEFAULT 0[0m
+  [4;35;1mSQL (107.1ms)[0m   [0mALTER TABLE `contracts` ADD `count` int(11)[0m
+  [4;36;1mSQL (33.1ms)[0m   [0;1mALTER TABLE `contracts` ADD `lock_version` int(11) DEFAULT 0[0m
+  [4;35;1mSQL (31.6ms)[0m   [0mALTER TABLE `properties` ADD `count` int(11)[0m
+  [4;36;1mSQL (76.3ms)[0m   [0;1mALTER TABLE `properties` ADD `lock_version` int(11) DEFAULT 0[0m
+  [4;35;1mSQL (52.7ms)[0m   [0mALTER TABLE `addons` ADD `count` int(11)[0m
+  [4;36;1mSQL (34.0ms)[0m   [0;1mALTER TABLE `addons` ADD `lock_version` int(11) DEFAULT 0[0m
+  [4;35;1mSQL (14.5ms)[0m   [0mALTER TABLE `notes` ADD `count` int(11)[0m
+  [4;36;1mSQL (30.2ms)[0m   [0;1mALTER TABLE `notes` ADD `lock_version` int(11) DEFAULT 0[0m
+  [4;35;1mSQL (13.8ms)[0m   [0mALTER TABLE `documents` ADD `count` int(11)[0m
+  [4;36;1mSQL (27.6ms)[0m   [0;1mALTER TABLE `documents` ADD `lock_version` int(11) DEFAULT 0[0m
+  [4;35;1mSQL (40.0ms)[0m   [0mALTER TABLE `prices` ADD `count` int(11)[0m
+  [4;36;1mSQL (63.7ms)[0m   [0;1mALTER TABLE `prices` ADD `lock_version` int(11) DEFAULT 0[0m
+  [4;35;1mSQL (34.5ms)[0m   [0mALTER TABLE `users` ADD `count` int(11)[0m
+  [4;36;1mSQL (89.6ms)[0m   [0;1mALTER TABLE `users` ADD `lock_version` int(11) DEFAULT 0[0m
+  [4;35;1mSQL (45.7ms)[0m   [0mALTER TABLE `rights` ADD `count` int(11)[0m
+  [4;36;1mSQL (90.0ms)[0m   [0;1mALTER TABLE `rights` ADD `lock_version` int(11) DEFAULT 0[0m
+  [4;35;1mSQL (7.3ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('9')[0m
+Migrating to AddDemoUsers (10)
+  [4;36;1mUser Columns (1.7ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Exists (0.2ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`name` = BINARY 'demo') LIMIT 1[0m
+  [4;35;1mUser Create (0.3ms)[0m   [0mINSERT INTO `users` (`name`, `datestring`, `creditcard`, `calendar_color_free`, `created_at`, `confirmed`, `premium`, `updated_at`, `calendar_color_departure`, `hashed_password`, `admin`, `language`, `header`, `calendar_color_blocked`, `lock_version`, `calendar_symbols`, `count`, `homepage`, `footer`, `currency`, `calendar_color_arrival`, `email`) VALUES('demo', '', 0, '05FF05', '2011-05-04 10:24:32', 1, 0, '2011-05-04 10:24:32', '172EFF', '89e495e7941cf9e40e6980d14a16bf023ccd4c91', 0, '', '', '473E34', 0, '', NULL, 'http://www.example.com', '', '', '08F7FF', 'demo@example.com')[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Exists (0.3ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`name` = BINARY 'admin') LIMIT 1[0m
+  [4;35;1mUser Create (0.3ms)[0m   [0mINSERT INTO `users` (`name`, `datestring`, `creditcard`, `calendar_color_free`, `created_at`, `confirmed`, `premium`, `updated_at`, `calendar_color_departure`, `hashed_password`, `admin`, `language`, `header`, `calendar_color_blocked`, `lock_version`, `calendar_symbols`, `count`, `homepage`, `footer`, `currency`, `calendar_color_arrival`, `email`) VALUES('admin', '', 0, '05FF05', '2011-05-04 10:24:32', 1, 0, '2011-05-04 10:24:32', '172EFF', 'd033e22ae348aeb5660fc2140aec35850c4da997', 1, '', '', '473E34', 0, '', NULL, 'http://www.example.com', '', '', '08F7FF', 'demo@example.com')[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('10')[0m
+  [4;36;1mSQL (1.8ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (12.3ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (6.0ms)[0m   [0mSHOW FIELDS FROM `addons`[0m
+  [4;36;1mSQL (1.7ms)[0m   [0;1mdescribe `addons`[0m
+  [4;35;1mSQL (31.7ms)[0m   [0mSHOW KEYS FROM `addons`[0m
+  [4;36;1mSQL (1.2ms)[0m   [0;1mSHOW FIELDS FROM `addons_contracts`[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mdescribe `addons_contracts`[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW KEYS FROM `addons_contracts`[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSHOW FIELDS FROM `admins`[0m
+  [4;36;1mSQL (1.2ms)[0m   [0;1mdescribe `admins`[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW KEYS FROM `admins`[0m
+  [4;36;1mSQL (2.5ms)[0m   [0;1mSHOW FIELDS FROM `contracts`[0m
+  [4;35;1mSQL (2.3ms)[0m   [0mdescribe `contracts`[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSHOW KEYS FROM `contracts`[0m
+  [4;35;1mSQL (2.4ms)[0m   [0mSHOW FIELDS FROM `customers`[0m
+  [4;36;1mSQL (2.1ms)[0m   [0;1mdescribe `customers`[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW KEYS FROM `customers`[0m
+  [4;36;1mSQL (1.8ms)[0m   [0;1mSHOW FIELDS FROM `documents`[0m
+  [4;35;1mSQL (1.7ms)[0m   [0mdescribe `documents`[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW KEYS FROM `documents`[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSHOW FIELDS FROM `documents_rooms`[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mdescribe `documents_rooms`[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSHOW KEYS FROM `documents_rooms`[0m
+  [4;36;1mSQL (1.7ms)[0m   [0;1mSHOW FIELDS FROM `globalize_countries`[0m
+  [4;35;1mSQL (1.8ms)[0m   [0mdescribe `globalize_countries`[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSHOW KEYS FROM `globalize_countries`[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mSHOW FIELDS FROM `globalize_languages`[0m
+  [4;36;1mSQL (2.1ms)[0m   [0;1mdescribe `globalize_languages`[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mSHOW KEYS FROM `globalize_languages`[0m
+  [4;36;1mSQL (2.2ms)[0m   [0;1mSHOW FIELDS FROM `globalize_translations`[0m
+  [4;35;1mSQL (1.6ms)[0m   [0mdescribe `globalize_translations`[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSHOW KEYS FROM `globalize_translations`[0m
+  [4;35;1mSQL (1.5ms)[0m   [0mSHOW FIELDS FROM `notes`[0m
+  [4;36;1mSQL (1.4ms)[0m   [0;1mdescribe `notes`[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSHOW KEYS FROM `notes`[0m
+  [4;36;1mSQL (2.1ms)[0m   [0;1mSHOW FIELDS FROM `prices`[0m
+  [4;35;1mSQL (1.7ms)[0m   [0mdescribe `prices`[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW KEYS FROM `prices`[0m
+  [4;35;1mSQL (1.8ms)[0m   [0mSHOW FIELDS FROM `properties`[0m
+  [4;36;1mSQL (1.7ms)[0m   [0;1mdescribe `properties`[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW KEYS FROM `properties`[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mSHOW FIELDS FROM `publics`[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mdescribe `publics`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSHOW KEYS FROM `publics`[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mSHOW FIELDS FROM `rights`[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mdescribe `rights`[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSHOW KEYS FROM `rights`[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSHOW FIELDS FROM `roles`[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mdescribe `roles`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSHOW KEYS FROM `roles`[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mSHOW FIELDS FROM `rooms`[0m
+  [4;36;1mSQL (1.2ms)[0m   [0;1mdescribe `rooms`[0m
+  [4;35;1mSQL (15.2ms)[0m   [0mSHOW KEYS FROM `rooms`[0m
+  [4;36;1mSQL (17.5ms)[0m   [0;1mSHOW FIELDS FROM `sessions`[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mdescribe `sessions`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSHOW KEYS FROM `sessions`[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW FIELDS FROM `user_admins`[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mdescribe `user_admins`[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSHOW KEYS FROM `user_admins`[0m
+  [4;36;1mSQL (1.2ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mSQL (1.2ms)[0m   [0mdescribe `users`[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW KEYS FROM `users`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UserController#index (for 127.0.0.1 at 2011-05-04 18:25:24) [GET]
+Redirected to http://localhost:4000/login/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 73ms (DB: 1) | 302 Found [http://localhost/]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing LoginController#login (for 127.0.0.1 at 2011-05-04 18:25:24) [GET]
+  [4;36;1mUser Columns (4.6ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+Rendering template within layouts/login
+Rendering login/login
+Completed in 151ms (View: 131, DB: 5) | 200 OK [http://localhost/login/login]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UserController#index (for 127.0.0.1 at 2011-05-04 18:25:29) [GET]
+Redirected to http://localhost:4000/login/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 85ms (DB: 1) | 302 Found [http://localhost/]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing LoginController#login (for 127.0.0.1 at 2011-05-04 18:25:29) [GET]
+  [4;35;1mUser Columns (3.3ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+Rendering template within layouts/login
+Rendering login/login
+Completed in 22ms (View: 4, DB: 10) | 200 OK [http://localhost/login/login]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UserController#index (for 127.0.0.1 at 2011-05-04 18:25:58) [GET]
+Redirected to http://localhost:4000/login/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 44ms (DB: 0) | 302 Found [http://localhost/]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing LoginController#login (for 127.0.0.1 at 2011-05-04 18:25:58) [GET]
+  [4;36;1mUser Columns (1.8ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+Rendering template within layouts/login
+Rendering login/login
+Completed in 92ms (View: 5, DB: 2) | 200 OK [http://localhost/login/login]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing LoginController#login (for 127.0.0.1 at 2011-05-04 18:26:06) [POST]
+  Parameters: {"user"=>{"name"=>"admin", "password"=>"admin"}}
+  [4;36;1mUser Columns (2.9ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM `users` WHERE (name = 'admin' and hashed_password = 'd033e22ae348aeb5660fc2140aec35850c4da997' and confirmed = 1) LIMIT 1[0m
+Redirected to http://localhost:4000/user_admin
+Completed in 25ms (DB: 4) | 302 Found [http://localhost/login/login]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UserAdminController#index (for 127.0.0.1 at 2011-05-04 18:26:07) [GET]
+  [4;35;1mUser Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+  [4;36;1mContract Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `contracts`[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM `contracts` WHERE (user_id = 2) [0m
+Redirected to http://localhost:4000/admin
+Completed in 55ms (DB: 4) | 302 Found [http://localhost/user_admin]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AdminController#index (for 127.0.0.1 at 2011-05-04 18:26:07) [GET]
+  [4;35;1mUser Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+Rendering template within layouts/admin
+Rendering admin/index
+Rendered admin/_show_menu (1.8ms)
+Completed in 77ms (View: 65, DB: 2) | 200 OK [http://localhost/admin]
+  [4;36;1mSQL (12.4ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing LoginController#login (for 127.0.0.1 at 2011-05-04 18:26:18) [POST]
+  Parameters: {"user"=>{"name"=>"demo", "password"=>"demo"}}
+  [4;35;1mUser Columns (7.9ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.9ms)[0m   [0;1mSELECT * FROM `users` WHERE (name = 'demo' and hashed_password = '89e495e7941cf9e40e6980d14a16bf023ccd4c91' and confirmed = 1) LIMIT 1[0m
+Redirected to http://localhost:4000/user_admin
+Completed in 23ms (DB: 23) | 302 Found [http://localhost/login/login]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UserAdminController#index (for 127.0.0.1 at 2011-05-04 18:26:18) [GET]
+  [4;36;1mUser Columns (1.7ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;35;1mContract Columns (3.1ms)[0m   [0mSHOW FIELDS FROM `contracts`[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM `contracts` WHERE (user_id = 1) [0m
+Rendering template within layouts/user
+Rendering user_admin/index
+Rendered user_admin/_show_menu (2.4ms)
+Completed in 128ms (View: 96, DB: 6) | 200 OK [http://localhost/user_admin]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PropertyController#list (for 127.0.0.1 at 2011-05-04 18:26:25) [GET]
+  [4;36;1mUser Columns (2.9ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mProperty Columns (1.8ms)[0m   [0;1mSHOW FIELDS FROM `properties`[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSELECT count(*) AS count_all FROM `properties` WHERE (user_id = 1) [0m
+Rendering template within layouts/user
+Rendering property/list
+Rendered property/_show_menu (2.3ms)
+Completed in 200ms (View: 163, DB: 6) | 200 OK [http://localhost/property/list]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RoomController#list (for 127.0.0.1 at 2011-05-04 18:26:27) [GET]
+  [4;35;1mUser Columns (2.7ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;35;1mRoom Load (0.5ms)[0m   [0mSELECT * FROM `rooms` WHERE (user_id = 1) LIMIT 0, 10[0m
+Rendering template within layouts/user
+Rendering room/list
+Rendered shared/_submenu (2.4ms)
+Rendered room/_show_menu (6.0ms)
+Completed in 151ms (View: 99, DB: 4) | 200 OK [http://localhost/room/list]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PriceController#list (for 127.0.0.1 at 2011-05-04 18:26:28) [GET]
+  [4;35;1mUser Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;35;1mPrice Load (0.4ms)[0m   [0mSELECT * FROM `prices` WHERE (user_id = 1) LIMIT 0, 10[0m
+Rendering template within layouts/user
+Rendering price/list
+Rendered price/_show_menu (12.7ms)
+Completed in 188ms (View: 168, DB: 3) | 200 OK [http://localhost/price/list]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AddonController#list (for 127.0.0.1 at 2011-05-04 18:26:30) [GET]
+  [4;35;1mUser Columns (2.6ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;35;1mAddon Load (1.6ms)[0m   [0mSELECT * FROM `addons` WHERE (user_id = 1) LIMIT 0, 10[0m
+Rendering template within layouts/user
+Rendering addon/list
+Rendered shared/_submenu (1.3ms)
+Rendered addon/_show_menu (2.7ms)
+Completed in 97ms (View: 67, DB: 5) | 200 OK [http://localhost/addon/list]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing DocumentController#list (for 127.0.0.1 at 2011-05-04 18:26:31) [GET]
+  [4;35;1mUser Columns (1.7ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.7ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mDocument Load (0.7ms)[0m   [0;1mSELECT * FROM `documents` LIMIT 0, 1[0m
+Rendering template within layouts/user
+Rendering document/list
+Rendered shared/_submenu (1.3ms)
+Rendered document/_show_menu (9.4ms)
+Completed in 171ms (View: 155, DB: 3) | 200 OK [http://localhost/document/list]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PropertyController#public_code (for 127.0.0.1 at 2011-05-04 18:26:32) [GET]
+  [4;36;1mUser Columns (4.8ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mProperty Load (0.3ms)[0m   [0;1mSELECT * FROM `properties` WHERE (user_id = 1) LIMIT 1[0m
+Rendering template within layouts/user
+Rendering property/public_code
+Rendered property/_show_menu (0.7ms)
+Completed in 109ms (View: 76, DB: 6) | 200 OK [http://localhost/property/public_code]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CustomerController#search (for 127.0.0.1 at 2011-05-04 18:26:36) [GET]
+  [4;36;1mUser Columns (1.9ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+Rendering template within layouts/user
+Rendering customer/search
+Rendered customer/_show_menu (1.6ms)
+Completed in 76ms (View: 62, DB: 3) | 200 OK [http://localhost/customer/search]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UserAdminController#index (for 127.0.0.1 at 2011-05-04 18:26:38) [GET]
+  [4;35;1mUser Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mContract Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `contracts`[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM `contracts` WHERE (user_id = 1) [0m
+Rendering template within layouts/user
+Rendering user_admin/index
+Rendered user_admin/_show_menu (0.7ms)
+Completed in 180ms (View: 54, DB: 4) | 200 OK [http://localhost/user_admin]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing LoginController#logout (for 127.0.0.1 at 2011-05-04 18:26:41) [GET]
+  [4;35;1mUser Columns (2.9ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+Redirected to http://localhost:4000/login/login
+Completed in 102ms (DB: 4) | 302 Found [http://localhost/login/logout]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing LoginController#login (for 127.0.0.1 at 2011-05-04 18:26:41) [GET]
+  [4;36;1mUser Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+Rendering template within layouts/login
+Rendering login/login
+Completed in 16ms (View: 5, DB: 2) | 200 OK [http://localhost/login/login]

@@ -1,0 +1,12 @@
+Customer submenu:
+<ul>
+<li><%= link_to(t(:"global_list"), :controller => :customer, :action => :list) %></li>
+<li><%= link_to(t(:"global_new"), :controller => :customer, :action => :new) %></li>
+<li><%= link_to(t(:"global_search"), :controller => :customer, :action => :search) %></li>
+</ul>
+
+<hr noshade size="3" color="#eb8137">
+<a href="http://www.solunas.org/wiki/index.php/Help_Section_Customer">
+<%= t :"customer.menu.note", :bold_open => "<b>", :bold_close => "</b>" %>
+</a>
+<hr noshade size="3" color="#eb8137">

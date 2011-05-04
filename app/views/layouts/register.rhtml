@@ -1,0 +1,17 @@
+<html>
+<head>
+<title>Solunas 2 Backoffice</title>
+<%= stylesheet_link_tag "admin", :media => "all" %>
+</head>
+
+<body>
+
+<% if flash[:notice] -%>
+          <div id="notice"><%= flash[:notice] %></div><br>
+        <% end -%>
+
+	<%= @content_for_layout %>
+
+</body>
+
+</html>

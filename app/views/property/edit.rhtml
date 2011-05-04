@@ -1,0 +1,8 @@
+<h1><%= t :"property.menu.header" %></h1>
+
+<% form_tag :action => :update, :id => @property do |f| %>
+  <%= render :partial => 'form' %>
+  <%= submit_tag t(:"global_edit") %>
+<% end %>
+
+

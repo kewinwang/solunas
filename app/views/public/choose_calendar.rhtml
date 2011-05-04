@@ -1,0 +1,40 @@
+<%= "Please choose date and property. An availability calendar will be shown afterwards".t %>.
+<%= form_remote_tag(:update => "update_div",
+                    :url => {:action => :show_calendar},
+                    :before => %(Element.show('spinner')),
+                    :success => %(Element.hide('spinner'))) %>
+
+<p><b><%= "Month".t %>:</b>
+
+  <select name="month">
+   <% (1 .. 12).each do |month| %>
+       <option value="<%= month %>">
+
+         <%= month %>
+       </option>
+   <% end %>
+  </select>
+
+  <b><%= "Year".t %>:</b>
+
+  <select name="year">
+   <% (::Time.now.year .. ::Time.now.year+5).each do |year| %>
+       <option value="<%= year %>">
+
+         <%= year %>
+       </option>
+   <% end %>
+  </select>
+
+  <b><%= "Property".t %>:</b>
+  <select name="property_id">
+   <% @properties.each do |property| %>
+       <option value="<%= property.id %>">
+         <%= property.name %>
+       </option>
+   <% end %>
+  </select>
+
+  <%= submit_tag 'Go'.t %>
+<%= end_form_tag %>
+<%= image_tag 'spinner.gif', :id => 'spinner', :style => 'display:none' %>

@@ -1,0 +1,42 @@
+<h1><%= "Listing rooms" %></h1>
+
+<% if !@rooms.empty? %>
+<table>
+  <tr>
+  <th align="left" width="15%"><%= "ID" %></th>
+  <th align="left" width="15%"><%= "Name" %></th>
+  <th align="left" width="15%"><%= "Property" %></th>
+  <th align="left" width="15%"></th>
+  </tr>
+
+
+
+  <% @rooms.each do |room| %>
+  <tr>
+  <td width="15%"><%= room.id %></td>
+    <td width="15%"><%= room.name %></td>
+    <td width="15%"><%= room.property.name %></td>
+
+
+    <td width="55%">| <%= link_to 'Show', :action => 'show', :id => room %>
+    | <%= link_to 'Edit', :action => 'edit', :id => room %>
+    | <%= link_to 'Destroy', {:action => 'destroy', :id => room}, :confirm => 'Are you sure?' %>
+    | <%= link_to 'Edit Minimum Stay', {:action => 'edit_minimum_stay', :id => room} %></td>
+  </tr>
+<% end %>
+</table>
+<% end %>
+<br />
+<br />
+<div class="roundedcornr_box_284975">
+   <div class="roundedcornr_top_284975"><div></div></div>
+      <div class="roundedcornr_content_284975"><p>
+         <%= will_paginate @rooms %>
+         <br />
+         <br />
+         <%= link_to 'New room', :action => 'new' %></p>
+      </div>
+   <div class="roundedcornr_bottom_284975"><div></div></div>
+</div>
+
+<br><br>Please note: You have to assign at least one price per room.

@@ -1,0 +1,64 @@
+<h1>Editing price data for: <%= @price.room.name %></h1>
+
+<% form_tag :action => :update, :id => @price do |f| %>
+  <p><label for="price_adults">Adults</label>
+  <%= select('price', 'adults', (1..100).collect { |e| [e, e] }) %></p>
+
+  <p><label for="price_children">Children</label>
+  <%= select('price', 'children', (1..100).collect { |e| [e, e] }) %></p>
+
+  <p><b><%= t :"global_room" %>:</b>
+
+  <select name="price[room_id]">
+   <% @rooms.each do |room| %>
+       <option value="<%= room.id %>"
+	   <%= ' selected' if room.id == @price.room_id %>>
+         <%= room.name %>
+       </option>
+   <% end %>
+  </select>
+  <br>
+  <br>
+  <%= submit_tag t(:"global_edit") %>
+<% end %>
+<h1><%= t :"price.line_2" %>: <%= @price.room.name %></h1>
+<%= t :"price.line_3" %> 1,4,50;5,8,40
+<br><br>
+<table width="600">
+  <% (1 .. 12).each do |x|
+     @month = month_vars(x) %>
+  <tr><td valign="top"><b><%= t :"#{@month['name']}" %></b></td>
+  <% (1 .. @month["end"].to_i).each do |y| %>
+    <td width="20"><%= y %><br><% if @prl["#{x}"]["#{y}"].class == Array %>
+       A
+    <% else %>
+       <%= @prl["#{x}"]["#{y}"] %>
+    <% end %>
+    </td>
+  <% end %>
+ </tr> <% end %></table>
+<%= t :"price.new" %>:
+<% form_tag :action => :new_price, :id => @price do |f| %>
+<select size="1" name="start_day">
+<% (1 .. 31).each do |x| %>
+<option><%= x %></option>
+<% end %>
+</select>
+<select size="1" name="start_month">
+<% (1 .. 12).each do |x| %>
+<option value="<%= x %>"><%= t :"#{month_vars(x)['name']}" %></option>
+<% end %>
+</select> - 
+<select size="1" name="stop_day">
+<% (1 .. 31).each do |x| %>
+<option><%= x %></option>
+<% end %>
+</select>
+<select size="1" name="stop_month">
+<% (1 .. 12).each do |x| %>
+<option value="<%= x %>"><%= t :"#{month_vars(x)['name']}" %></option>
+<% end %>
+</select> 
+<input type="text" name="new_price" size="40">
+<%= submit_tag t(:"global_edit") %>
+<% end %>

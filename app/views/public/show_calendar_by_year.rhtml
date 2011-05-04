@@ -1,0 +1,25 @@
+<%= "Calendar for".t %> <%= @room.property.name %> <%= @room.name %> <%= @year %>:</b><br><br>
+
+
+
+<% (1 .. 12).each do |x|
+     @month = month_vars(x, @year) %>
+  <table id="table_calendar">
+  <tr><td width="100"><b><%= @month["name"].t %></b></td>
+  <% (1 .. @month["end"].to_i).each do |y| %>
+
+
+
+
+        <% if @calendar[x][y] == 1  || ::Date.new(@year.to_i,x,y) < ::DateTime.now-(1) %>
+       <td id="calendar_not_av" align="center">B
+       <% elsif @calendar[x][y] == 2 %>
+           <td id="calendar_arrival" align="center">A
+           <% elsif @calendar[x][y] == 3 %>
+           <td id="calendar_departure" align="center">D
+           <% else %>
+           <td id="calendar_av" align="center">F
+           <% end %>
+	   </td>
+  <% end %></tr> </table>
+ <% end %>

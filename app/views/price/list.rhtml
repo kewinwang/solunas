@@ -1,0 +1,35 @@
+<h1><%= t :"price.header_3" %></h1>
+
+<% if !@prices.empty? %>
+<table width="600">
+  <tr>
+  <th align="left" width="20%"><%= t :"price.room_name" %></th>
+  <th align="left" width="15%"><%= t :"global_adult" %></th>
+  <th align="left" width="15%"><%= t :"global_children" %></th>
+  <th align="left" width="50%"></th>
+  </tr>
+<% for price in @prices %>
+  <tr>
+  <td width="20%"><%= price.room.name %></td>
+  <td width="15%"><%= price.adults %></td>
+  <td width="15%"><%= price.children %></td>
+    <td width="50%">| <%= link_to 'Show', :action => 'show', :id => price %>
+    | <%= link_to 'Edit', :action => 'edit', :id => price %>
+    | <%= link_to 'Destroy', {:action => 'destroy', :id => price}, :confirm => 'Are you sure?' %></td>
+  </tr>
+<% end %>
+</table>
+<% end %>
+<br />
+<br />
+<div class="roundedcornr_box_284975">
+   <div class="roundedcornr_top_284975"><div></div></div>
+      <div class="roundedcornr_content_284975"><p>
+         <%= will_paginate @prices %>
+         <br />
+         <br />
+         <%= link_to t(:"price.new"), :action => 'new' %></p>
+      </div>
+   <div class="roundedcornr_bottom_284975"><div></div></div>
+</div>
+

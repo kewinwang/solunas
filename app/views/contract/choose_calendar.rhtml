@@ -1,0 +1,39 @@
+
+<% form_remote_tag  :update => "update_div",
+                    :url => {:action => :show_calendar, :controller => :contract},
+                    :before => %(Element.show('spinner_2');Element.hide('submit_2');),
+                    :success => %(Element.hide('spinner_2');Element.show('submit_2');) do |f| %>
+
+<p><b>Month:</b>
+
+  <select name="month">
+   <% (1 .. 12).each do |month| %>
+       <option value="<%= month %>">
+         <%= month %>
+       </option>
+   <% end %>
+  </select>
+
+  <b>Year:</b>
+
+  <select name="year">
+   <% (::Time.now.year .. ::Time.now.year+15).each do |year| %>
+       <option value="<%= year %>">
+         <%= year %>
+       </option>
+   <% end %>
+  </select>
+
+  <b>Property:</b>
+  <select name="property_id">
+   <% @properties.each do |property| %>
+       <option value="<%= property.id %>">
+         <%= property.name %>
+       </option>
+   <% end %>
+  </select>
+
+  <%= submit_tag t(:"global_go"), {:id => :submit_2} %>
+<% end %>
+
+<%= image_tag 'spinner.gif', :id => 'spinner_2', :style => 'display:none' %>

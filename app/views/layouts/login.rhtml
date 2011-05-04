@@ -1,0 +1,60 @@
+<html>
+<head>
+<title>Solunas 2 Backoffice Ajax'd</title>
+<%= stylesheet_link_tag "admin", :media => "all" %>
+<%= javascript_include_tag "prototype", "effects" %>
+<!--
+#************************************************************************/
+#* SOLUNAS BOOKING ENGINE                                               */
+#* ======================                                               */
+#*                                                                      */
+#* Copyright (c) 2006 by Marc Isemann                                   */
+#* http://sourceforge.net/projects/solunas                              */
+#* http://www.solunas.org                                               */
+#*                                                                      */
+#* This program is free software. You can redistribute it and/or modify */
+#* it under the terms of the GNU General Public License as published by */
+#* the Free Software Foundation; either version 2 of the License.       */
+#************************************************************************/
+
+-->
+</head>
+
+<body>
+
+<table id="main" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" colspan="2" id="cell_top"><img border="0" src="/images/logo_compl.gif" align="right" width="197" height="66">
+      <br>
+    </td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2" id="cell_mid">
+
+
+      <br>
+    </td>
+  </tr>
+
+  <tr>
+    <td id="menu"><div style="width: 150px;">
+    <% if session[:user_id] -%>
+    <%= render(:partial => "show_menu") %>
+    <% end -%>
+          <p align="center">
+          Banner</p>
+          </div>
+          </td>
+    <td id="content"><% if flash[:notice] -%>
+          <div id="notice"><%= flash[:notice] %></div>
+        <% end -%>
+
+	<%= @content_for_layout %></td>
+  </tr>
+</table>
+<a href="http://www.solunas.org">Solunas.org</a>
+
+
+</body>
+
+</html>

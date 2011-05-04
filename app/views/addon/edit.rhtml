@@ -1,0 +1,35 @@
+<h1><%= t :"addon.header" %></h1>
+<%= error_messages_for(:addon) %>
+
+<% form_tag :action => :update, :id => @addon do |f| %>
+
+  <p><label for="addon_name"><%= t :"global_name" %></label><br/>
+<%= text_field 'addon', 'name'  %></p>
+
+<p><label for="addon_price"><%= t :"global_price" %></label><br/>
+<%= text_field 'addon', 'price'  %></p>
+
+<p><label for="addon_onetime"><%= t :"addon.one_time_payment" %></label>
+<%= check_box("addon", "onetime") %></p>
+
+<p><label for="addon_force_cart"><%= t :"addon.force_card_insert" %></label>
+<%= check_box("addon", "force_cart") %></p>
+
+<p><label for="addon_per_person"><%= t :"addon.price_per_person" %></label>
+<%= check_box("addon", "per_person") %></p>
+
+
+  <select name="addon[room_id]">
+   <% @rooms.each do |room| %>
+       <option value="<%= room.id %>"
+         <%= ' selected' if room.id == @addon.room_id %>>
+         <%= room.name %>
+       </option>
+   <% end %>
+  </select>
+  <br>
+  <br>
+  <%= submit_tag t(:"global_edit") %>
+<% end %>
+
+

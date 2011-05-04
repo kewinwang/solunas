@@ -1,0 +1,42 @@
+<h1><%= t :"contract.list_pending.header" %></h1>
+<% if !@contracts.empty? %>
+<%= t :"contract.list_pending.note" %>
+<br />
+<table>
+  <tr>
+  <td id="listitem"><b><%= t :"global_name" %></b></td>
+  <td id="listitem"><b><%= t :"global_arrival" %></b></td>
+  <td id="listitem"><b><%= t :"global_departure" %></b></td>
+  
+  </tr>
+
+<% for contract in @contracts %>
+  <tr>
+  <td id="listitem" width="40%"><%= contract.customer.name %></td>
+  <td id="listitem" width="10%"><%= contract.arrival %></td>
+  <td id="listitem" width="10%"><%= contract.departure %></td>
+  
+  
+    <td width="40%">| <%= link_to 'Confirm', { :action => 'confirm', :id => contract } %>
+    | <%= link_to 'Show', :action => 'show', :id => contract %>
+    | <%= link_to 'Edit', :action => 'edit', :id => contract %>
+    | <%= link_to 'Destroy', { :action => 'destroy', :id => contract }, :confirm => 'Are you sure?' %></td>
+  </tr>
+<% end %>
+</table>
+<% end %>
+<br />
+<div class="roundedcornr_box_284975">
+   <div class="roundedcornr_top_284975"><div></div></div>
+      <div class="roundedcornr_content_284975">
+      <p>
+        <%= will_paginate @contracts %>
+
+	<br />
+	<br />
+
+        <%= link_to t("contract.new"), :controller => :contract, :action => 'new' %>
+      </p>
+      </div>
+   <div class="roundedcornr_bottom_284975"><div></div></div>
+</div>

@@ -1,0 +1,8 @@
+<h1><%= t :"document.header_2" %></h1>
+
+<% form_tag :action => :update, :id => @document do |f| %>
+  <%= render :partial => 'form' %>
+  <%= submit_tag t(:"global_edit") %>
+<% end %>
+
+

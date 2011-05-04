@@ -1,0 +1,7 @@
+<h1><%= t :"customer.new" %></h1>
+<%= t :"customer.howto_create_customer" %> <b> <%= t :"customer.create" %></b>
+<% form_tag ({:action => 'create'}, {:name => 'the_form', :id => 'the_form'}) do |f| %>
+  <%= render :partial => 'form' %>
+  <%= submit_tag t(:"global_create") %>
+<% end %>
+

@@ -1,0 +1,26 @@
+<h1><%= t :"contract.new" %></h1>
+<%= error_messages_for(:contract) %>
+<%= t :"contract.create.note" %><br><br>
+<% form_tag :action => :create do |f| %>
+<%= hidden_field_tag 'customer_id' , @customers.id %>
+
+  <p><b><%= t :"global_customer" %>: <%= @customers.name %></b><br>
+<%= link_to t(:"global_edit"), { :action => 'edit', :controller => 'customer', :id => @customers.id } %>
+
+
+  <p><b><%= t :"global_room" %>:</b><br>
+
+  <select name="contract[room_id]">
+   <% @rooms.each do |room| %>
+       <option value="<%= room.id %>">
+         <%= room.name %>
+       </option>
+   <% end %>
+  </select>
+
+  <%= render :partial => 'form' %>
+
+  <%= submit_tag t(:"global_create") %>
+<% end %>
+
+

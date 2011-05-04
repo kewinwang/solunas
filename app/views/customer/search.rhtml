@@ -1,0 +1,8 @@
+<h1><%= t :"customer.search" %></h1>
+<%= t :"customer.search_note" %><br><br>
+<% form_tag :action => :list do |f| %>
+  <%= text_field_tag 'search', ''  %>
+
+  <%= submit_tag t :"global_search" %>
+<% end %>
+

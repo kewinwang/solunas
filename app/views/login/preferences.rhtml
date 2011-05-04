@@ -1,0 +1,9 @@
+<h1><%= "Editing user preferences".t %></h1>
+
+<%= start_form_tag :action => 'set_preferences', :id => @user %>
+  <%= text_field 'user', 'timestring'  %></p>
+  <%= text_area("user", "header", "cols" => 40, "rows" => 10) %>
+  <%= text_area("user", "footer", "cols" => 40, "rows" => 10) %>
+  <%= submit_tag 'Edit' %>
+<%= end_form_tag %>
+

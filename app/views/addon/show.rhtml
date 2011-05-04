@@ -1,0 +1,8 @@
+<% for column in Addon.content_columns %>
+<p>
+  <b><%= column.human_name %>:</b> <%=h @addon.send(column.name) %>
+</p>
+<% end %>
+
+<%= link_to t(:"global_edit"), :action => 'edit', :id => @addon %> |
+<%= link_to t(:"global_back"), :action => 'list' %>

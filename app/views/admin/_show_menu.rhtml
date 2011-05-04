@@ -1,0 +1,13 @@
+<%= t :"admin.menu.title" %>:
+<ul>
+
+<li><%= link_to(t(:"admin.add_user.add_user"), :controller => :admin, :action => :add_user) %></li>
+<li><%= link_to(t(:"admin.list_users.header"), :controller => :admin, :action => :list_users) %></li>
+<li><%= link_to(t(:"admin.confirm_users"), :controller => :admin, :action => :list_users_to_confirm) %></li>
+<li><%= link_to(t(:"admin.user_pref"),  :controller => :admin, :action => :edit, :id => session[:user_id]) %></li>
+
+</ul>
+
+<hr noshade size="3" color="#eb8137">
+<a href='http://solunas.org/11.0.html'><%= t :"admin.menu.note" %></a>
+<hr noshade size="3" color="#eb8137">

@@ -1,0 +1,3 @@
+module ContractHelper
+
+end

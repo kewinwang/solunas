@@ -1,0 +1,35 @@
+<h1><%= t :"price.header" %></h1>
+<%= t :"price.line_1" %> 1,4,50;5,8,40
+<br><br>
+<p><%= t :"global_adult" %>: <%= @price.adults %><br>
+<%= t :"global_children" %>: <%= @price.children %></p>
+<table width="600">
+  <% (1 .. 12).each do |x|
+     @month = month_vars(x) %>
+  <tr><td><b><%= t :"#{@month['name']}" %></b></td>
+  <% (1 .. @month["end"].to_i).each do |y| %>
+    <td width="20"><% if @prl["#{x}"]["#{y}"].class == Array %>
+       A
+       <% else %>
+       <%= @prl["#{x}"]["#{y}"] %>
+       <% end %>
+    </td>
+  <% end %>
+ </tr> <% end %></table>
+ 
+  <br>
+  <b><%= t :"global_room" %>:</b> <%= @price.room.name %><br>
+  <b><%= t :"global_property" %>:</b> <%= @price.room.property.name %>
+</p>
+
+<br />
+<div class="roundedcornr_box_284975">
+   <div class="roundedcornr_top_284975"><div></div></div>
+      <div class="roundedcornr_content_284975"><p>
+<%= link_to 'Edit', :action => 'edit', :id => @price %>
+</p>
+      </div>
+   <div class="roundedcornr_bottom_284975"><div></div></div>
+</div>
+
+

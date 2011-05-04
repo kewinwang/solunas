@@ -1,0 +1,23 @@
+<h1><%= "List users".t %></h1>
+
+<% @page_title = "User List" -%>
+<table>
+<tr>
+  <td id="listitem"><b><%= "Name".t %></b></td>
+  <td id="listitem"><b><%= "Premium Status".t %></b></td>
+  <td id="listitem"><b><%= "Homepage".t %></b></td>
+  <td id="listitem"><b><%= "E-Mail".t %></b></td>
+  <td id="listitem"></td>
+  <td id="listitem"></td>
+</tr>
+<% for user in @all_users -%>
+<tr>
+  <td id="listitem"><%= user.name %></td>
+  <td id="listitem"><%= user.premium %></td>
+  <td id="listitem"><%= user.homepage %></td>
+  <td id="listitem"><%= user.email %></td>
+  <td id="listitem"><%= link_to("confirm".t, :action => :confirm_user, :id => user.id) %></td>
+  <td id="listitem"><%= link_to("delete".t, :action => :delete_user, :id => user.id) %></td>
+</tr>
+<% end -%>
+</table>

@@ -1,0 +1,77 @@
+<h1><%= t :"room.edit.header" %>: <%= @room.name %></h1>
+
+<%= error_messages_for(:room) %>
+<% form_tag :action => 'update', :id => @room do |f| %>
+<p><b>
+<label for="room_name">
+<%= t :"global_name" %>
+</label>
+</b><br/>
+<%= text_field 'room', 'name'  %></p>
+<p><b><%= t :"global_property" %></b>
+
+  <select name="room[property_id]">
+   <% @properties.each do |property| %>
+       <option value="<%= property.id %>"
+         <%= ' selected' if property.id == @room.property_id %>>
+         <%= property.name %>
+       </option>
+   <% end %>
+  </select><br><br>
+  <b><%= t :"room.line_2" %></b>
+  <% 
+
+  week_days = { 1=>t(:"Monday"),
+                2=>t(:"Tuesday"),
+                3=>t(:"Wednesday"),
+                4=>t(:"Thursday"),
+                5=>t(:"Friday"),
+                6=>t(:"Saturday"),
+                0=>t(:"Sunday") }
+
+  (0 .. 6).each do |y|
+
+  if @days_of_week["#{y}"].to_i == 1
+    @cb = true
+  else
+    @cb = false
+  end
+   %>
+       <div style="width:75px;float:left;">
+          <%= t :"#{week_days[y]}" %>
+       </div>
+       <div style="width:15px;float:left;">
+          <%= check_box_tag("days_of_week[#{y}]", value = "1", checked = @cb, options = {}) %>
+       </div>
+       <br>
+
+  <% end %>
+  <div style="width:55px;float:left;margin-left:55px;margin-top:10px;">
+    <a href="#" onclick="check_toggle()">&nbsp;&nbsp;toggle</a>
+  </div>
+  <br><br>
+  <% if !@documents.empty? %>
+	   <b><%= t :"room.assigned_docs" %>:</b><br><br>
+  <% for document in @documents %>
+  <input type="checkbox" id="<%= document.id %>"
+                         name="document_ids[]"
+                         value="<%= document.id %>"
+                         <%if @room.documents.include? document %>checked="checked"<% end %>><%= document.name %><br>
+  <% end %><% end %>
+  <br><br>
+  <%= submit_tag t(:"global_edit") %>
+<% end %>
+
+<script type="text/javascript"><!--
+  var checkboxes = [];
+  checkboxes = $$('input').findAll(function(e) { return e.type == 'checkbox'; });
+  function check_toggle(){
+    checkboxes.each(function(e){
+        if (!e.checked) e.checked = 1
+        else e.checked = 0
+    });
+  }
+//--></script>
+
+
+

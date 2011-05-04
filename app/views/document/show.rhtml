@@ -1,0 +1,16 @@
+<% for column in Document.content_columns %>
+<p>
+  <b><%= column.human_name %>:</b> <%=h @document.send(column.name) %>
+</p>
+<% end %>
+<br />
+<div class="roundedcornr_box_284975">
+   <div class="roundedcornr_top_284975"><div></div></div>
+      <div class="roundedcornr_content_284975"><p>
+<%= link_to t(:"global_edit"), :action => 'edit', :id => @document %> |
+<%= link_to t(:"global_back"), :action => 'list' %>
+</p>
+      </div>
+   <div class="roundedcornr_bottom_284975"><div></div></div>
+</div>
+

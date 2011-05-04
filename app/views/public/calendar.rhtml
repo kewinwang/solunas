@@ -1,0 +1,8 @@
+<h1><%= "Availability Calendar".t %></h1>
+<div id="update_div">
+<%= render_component(:action => "show_calendar", :params => {:property_id => @property_id,
+                                                        :month => @month,
+                                                        :year => @year}) %>
+</div>
+<br><br>
+<%= render_component(:action => "choose_calendar") %>

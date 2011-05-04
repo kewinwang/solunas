@@ -1,0 +1,10 @@
+<h1>New note for <%= @customer.name %></h1>
+
+<% form_tag :action => :create do |f| %>
+<%= hidden_field_tag 'customer_id' , @customer.id %>
+
+  <%= render :partial => 'form' %>
+  <%= submit_tag "Create" %>
+<% end %>
+
+

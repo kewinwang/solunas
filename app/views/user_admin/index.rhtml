@@ -1,0 +1,27 @@
+<%  @page_title = "Welcome to Solunas" -%>
+
+<h1>Solunas 2 Backoffice</h1>
+
+<p>
+  <%= t :"user_admin.welcome", :username => @user.name %>!<br><br>
+  <%= t :"user_admin.backoffice" %>.
+  <%= t :"user_admin.notes" %>:<br><br>
+
+
+  <ul>
+  <li><%= "Your ID" %>: <%= @user.id %></li>
+  <% if @admin == 0 %>
+  <li><%= "Total contracts" %>: <%= @contract_count %></li>
+  <% end %>
+  </ul>
+</p>
+<br>
+  <%= t :"user_admin.integration.part_1" %>
+  <a href="http://www.solunas.org/paid_services.0.html">Solunas Portal</a>
+
+<br><br>
+  <%= t :"user_admin.integration.part_2" %> <a href="http://www.solunas.org/first_steps.0.html"><b>
+  <%= t :"user_admin.integration.first_step" %></b></a>
+  <%= t :"user_admin.integration.part_3" %>
+<br><br>Joomla! Users are interested in the <a href="http://solunas.org/joomla_guide.0.html">Joomla! Guide</a>
+<br><br>You run a production site? Subscribe to our <a href="http://www.solunas.org/48.0.html">"Solunas in the Wild"</a> section.

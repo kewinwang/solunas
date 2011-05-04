@@ -1,0 +1,10 @@
+Hello <%= @user %>,
+
+To reset your password, please visit the following URL:
+
+<%= @app['url'] %>account/reset/<%= @user.login %>,<%= @user.validkey %>
+
+Thank you,
+
+<%= @app['title'] %> Administrator
+<%= @app['url'] %>

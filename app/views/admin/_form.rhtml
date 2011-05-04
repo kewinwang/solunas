@@ -1,0 +1,21 @@
+<%= error_messages_for 'user' %>
+
+<!--[form:user]-->
+
+<p><b><%= t :"global_password" %></b><br/>
+<%= password_field_tag (name = "password", value = nil, options = {}) %>
+<br/><%= t :"admin.edit.leave_blank" %><br/></p>
+
+<p><label for="user_homepage"><b><%= t :"admin.homepage" %></b></label><br/>
+<%= text_field 'user', 'homepage'  %></p>
+
+<p><label for="user_email"><b><%= t :"global_email" %></b></label><br/>
+<%= text_field 'user', 'email'  %></p>
+
+<p><label for="user_language"><b><%= t :"global_language"  %></b></label>
+<%= select('user', 'language', UserController::LANG_FILES.sort.collect { |e| [ e, e ] }) %>
+</p>
+
+
+<!--[eoform:user]-->
+

@@ -1,0 +1,29 @@
+<h1>Listing notes for <%= @customer.name %></h1>
+
+<table>
+  <tr>
+  <% for column in Note.content_columns %>
+    <th><%= column.human_name %></th>
+  <% end %>
+  </tr>
+
+<%if @notes %>
+<% for note in @notes %>
+  <tr>
+  <% for column in Note.content_columns %>
+    <td><%=h note.send(column.name) %></td>
+  <% end %>
+    
+    <td><%= link_to 'Destroy', { :action => 'destroy', :id => note, :customer_id => @customer.id }, :confirm => 'Are you sure?' %>
+    </td>
+  </tr>
+<% end %>
+</table>
+
+<%= will_paginate @notes %> 
+<% end %>
+
+<br />
+
+<%= link_to 'New note', :action => 'new', :customer_id => @customer.id %> | 
+<%= link_to 'Customer Details', :action => 'show', :controller => 'customer', :id => @customer.id %>

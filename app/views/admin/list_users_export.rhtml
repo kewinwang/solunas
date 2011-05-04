@@ -1,0 +1,9 @@
+<h1><%= "List users".t %></h1>
+
+<% @page_title = "User List" -%>
+
+<% for user_line in @user -%>
+<%= user_line.name %>,<%= user_line.email %><br>
+<% end -%>
+
+

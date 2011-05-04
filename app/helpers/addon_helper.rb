@@ -1,0 +1,2 @@
+module AddonHelper
+end

@@ -1,0 +1,29 @@
+<h1><%= t :"price.header_2" %></h1>
+
+<%= error_messages_for(:price) %>
+
+<% form_tag :action => :create do |f| %>
+  <p><label for="price_adults"><%= t :"global_adult" %></label>
+  <%= select('price', 'adults', (1..100).collect { |e| [e, e] }) %></p>
+
+  <p><label for="price_children"><%= t :"global_children" %></label>
+  <%= select('price', 'children', (1..100).collect { |e| [e, e] })  %></p>
+
+  <%= t :"price.default" %>
+  <%= text_field_tag "default_price", "" ,:size => 3 , :class => "price" %>
+
+  <p><b><%= t :"global_room" %>:</b>
+
+  <select name="price[room_id]">
+   <% @rooms.each do |room| %>
+       <option value="<%= room.id %>">
+         <%= room.name %>
+       </option>
+   <% end %>
+  </select>
+  <br>
+  <br>
+  <%= submit_tag t(:"global_create") %>
+<% end %>
+
+

@@ -1,0 +1,270 @@
+en:
+
+  global_customer: "Customer"
+  global_room: "Room"
+  global_total: "Total"
+  global_arrival: "Arrival"
+  global_departure: "Departure"
+  global_adult: "Adults"
+  global_children: "Children"
+  global_credit_card_number: "Credit Card Number"
+  global_credit_card_expire_date: "Credit Card Expire date"
+  global_credit_card_cvv_code: "Credit Card CVV Code"
+  global_pending: "Pending"
+  global_addons: "Addons"
+  global_mail_documents: "Mail Documents"
+  global_edit: "Edit"
+  global_name: "Name"
+  global_show: "Show"
+  global_destroy: "Destroy"
+  global_list: "List"
+  global_new: "New"
+  global_search: "Search"
+  global_list_pending: "List pending"
+  global_list_uncomfirmed: "List unconfirmed"
+  global_calendar: "Calendar"
+  global_edit: "Edit"
+  global_create: "Create"
+  global_confirm: "Confirm"
+  global_are_you_sure: "Are you sure?"
+  global_year: "Year"
+  global_go: "Go"
+  global_street: "Street"
+  global_city: "City"
+  global_zip: "Zip"
+  global_country: "Country"
+  global_telephone: "Telephone"
+  global_fax: "Fax"
+  global_email: "Email"
+  global_language: "Language"
+  global_submit: "Submit"
+  global_delete: "delete"
+  global_password: "Password"
+  global_currency: "Currency"
+  global_header: "Header"
+  global_footer: "Footer"
+  global_free: "Free"
+  global_blocked: "Blocked"
+  global_homepage: "Homepage"
+  global_datestring: "Datestring"
+  global_id: "ID"
+  global_are_you_sure: "Are you sure?"
+  global_from: "From"
+  global_demo: "Demo"
+  global_or: "or"
+  global_property: "Property"
+  global_price: "Price"
+  global_back: "Back"
+
+  prev: "Previous"
+  next: "Next"
+
+  admin:
+    admin: "Admin"
+    homepage: "Homepage"
+    premium_status: "Premium Status"
+    last_login: "Last login"
+    user_success_update: "User was successfully updated"
+    cannot_delete: "Can't delete that user"
+    confirm_users: "Confirm users"
+    user_pref: "User preferences"
+    flash:
+      user_deleted: "User {{username}} deleted"
+      user_confirmed: "User confirmed"
+      user_not_confirmed: "User not confirmed"
+    list_users:
+      header: "List users"
+      user_list: "User List"
+    add_user:
+      header: "Add new user"
+      username: "User name"
+      add_user: "Add user"
+    edit:
+      header: "Editing user preferences"
+      leave_blank: "Leave blank, if you do not want to change"
+    menu:
+      title: "Administration submenu"
+      note: "You need Help on setting up Solunas? - visit our Solunas Wiki"
+
+  customer:
+    create: "Create"
+    new: "New Customer"
+    new_contract: "New Contract"
+    list_contracts: "List Contracts"
+    search: "Search customer"
+    search_note: "Search for a customers. Only the name field will be scaned."
+    howto_create_customer: "To create a new customer fill out form and press"
+    header_show: "Detailed contract information"
+    menu:
+      note: "You need Help on menu item {{bold_open}} Customers {{bold_close}} - visit our Solunas Wiki"
+    flash:
+      created_ok: "Customer was successfully created."
+      updated_ok: "Customer was successfully updated."
+
+  login:
+    flash:
+      invalid_login: "Invalid user/password combination"
+      password_emailed: "You got a new password by mail."
+      logged_out: "Logged out"
+      invalid_email: "Invalid email"
+
+  price:
+    flash:
+      created_ok: "Price was successfully created."
+      updated_ok: "Price was successfully updated."
+      schema_update: "Price schema was successfully updated."
+    header: "Price scheme"
+    line_1: "A is a placeholder for an price scheme like"
+    line_2: "Editing price schema for"
+    line_3: "A is a placeholder for an price scheme like"
+    header_2: "New price - Initialize it!"
+    header_3: "Listing prices"
+    price: "Default price"
+    room_name: "Room Name"
+    default: "Default price"
+    new: "New price"
+
+  property:
+    new: "New property"
+    header: "New property"
+    menu:
+      header: "Editing property"
+    flash:
+      created_ok: "Property was successfully created."
+      updated_ok: "Property was successfully updated."
+      delete_rooms: "Property has rooms - delete them first."
+
+  room:
+    name: "Room Name"
+    flash:
+      add_property: "Add a property first."
+      created_ok: "room was successfully created. Next step: assign prices."
+      updated_ok: "Room was successfully updated."
+      update_min_stay: "Room minimum stay schema was successfully updated."
+    line_1: "Public Code // shows the availability calendar by year and room (Ajax enhanced)"
+    line_2: "Bookable on following days of week"
+    assigned_docs: "Assigned Documents"
+    edit:
+      header: "Editing room"
+      min_stay: "Editing minimum stay schema for"
+      new_min_stay: "New minimum stay"
+    new:
+      header: "New room"
+      def_min_stay: "Default minimum stay (in days)"
+
+  document:
+    header: "New document"
+    header_2: "Editing document"
+    header_3: "Listing documents"
+    line_1: "Template in rhtml fomat. Use #{@var}"
+    flash:
+      created_ok: "Document was successfully created."
+      updated_ok: "Document was successfully updated."
+
+  note:
+    flash:
+      created_ok: "Note was successfully created."
+      updated_ok: "Note was successfully updated."
+
+  user_admin:
+    welcome: "Welcome, {{username}}"
+    user_pref: "User preferences"
+    public_code: "Public Code"
+    manage_room: "Manage rooms"
+    manage_property: "Manage property"
+    notes: "Some notes of interest"
+    backoffice: "Welcome to your backoffice"
+    credit_card_proc: "Credit Card Processing"
+    header: "Editing user preferences"
+    credit_card_processing: "Credit Card Processing"
+    m_r_p: "Manage room prices"
+    m_r_a: "Manage room addons"
+    m_r_d: "Manage room docs"
+    integration:
+      part_1: "You want us to do the integration of Solunas in your existig website? No problem - contact us at"
+      part_2: "Please note the"
+      part_3: "guide for a quick introduction on how to set up the application"
+      first_step: "First Step"
+    menu:
+      header: "Administration Submenu"
+      note: "You need Help on menu item {{bold_open}} Administration {{bold_close}} - visit our Solunas Wiki"
+    flash:
+      created_ok: "User was successfully created."
+      updated_ok: "User was successfully updated."
+
+  public_code:
+    header: "Public Links for your frontend"
+    line_1: "Use the following links"
+    line_2: "Calendar per property (change property ID for your needs)"
+    line_3: "Have a look in your property view"
+    line_4: "Calendar per room and year (change room ID for your needs)"
+    line_5: "Have a look in your room view"
+    book_online: "Book online!"
+
+  contract:
+    new: "New contract"
+    create:
+      note: "Create a new contract. Please fill in all required data."
+    search:
+      note: "Search for a contracts. Only the ID field will be scaned."
+      header: "Search contract"
+    list_pending:
+      note: "Here are contracts listet, that are confirmed but not back with a valid signature."
+      header: "Listing pending contracts"
+    list_unconfirmed:
+      note: "Here are contracts listet, that are made by a customer over the web-frontend.
+             After confirming a contract, the next state will be {{bold_open}} pending {{bold_close}}."
+      header: "Listing unconfirmed contracts"
+    list:
+      header: "Listing contracts"
+    calendar:
+      header: "Availability Calendar"
+      choose_1: "Choose date and property"
+      choose_2: "Choose month and room"
+      missing_properties: "Please create contracts first"
+    flash:
+      choose_customer: "Choose Customer first."
+      created_ok: "Contract was successfully created."
+      updated_ok: "Contract was successfully updated."
+      confirmed_ok: "Contract was successfully confirmed."
+      confirmed_nok: "Contract was {{bold_open}}not{{bold_close}} successfully confirmed."
+      doc_mailed: "Document was mailed."
+
+  addon:
+    header: "New addon"
+    header_2: "Editing addon"
+    header_3: "Listing addons"
+    one_time_payment: "One time payment"
+    force_card_insert: "Force cart insert"
+    price_per_person: "Price per person"
+    payment_per_stay: "Payment per stay"
+    new: "New addon"
+    flash:
+      add_room: "Add a room first."
+      created_ok: "Addon was successfully created."
+      updated_ok: "Addon was successfully updated."
+
+  app:
+    flash:
+      please_login: "Please log in"
+
+  January: "January"
+  February: "February"
+  March: "March"
+  April: "April"
+  May: "May"
+  June: "June"
+  July: "July"
+  August: "August"
+  September: "September"
+  October: "October"
+  November: "November"
+  December: "December"
+
+  Monday: "Monday"
+  Tuesday: "Tuesday"
+  Wednesday: "Wednesday"
+  Thursday: "Thursday"
+  Friday: "Friday"
+  Saturday: "Saturday"
+  Sunday: "Sunday"

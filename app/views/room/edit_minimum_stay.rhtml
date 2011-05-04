@@ -1,0 +1,36 @@
+<h1><%= t :"room.edit.min_stay" %>: <%= @room.name %></h1>
+<table width="600">
+  <% (1 .. 12).each do |x|
+     @month = month_vars(x) %>
+  <tr><td valign="top"><b><%= t :"#{@month['name']}" %></b></td>
+  <% (1 .. @month["end"].to_i).each do |y| %>
+    <td width="20">
+      <%= y %><br><%= @prl["#{x}"]["#{y}"] %>
+    </td>
+  <% end %>
+ </tr> <% end %></table>
+<%= t :"room.edit.new_min_stay" %>:
+<% form_tag :action => :new_minimum_stay, :id => @room do |f| %>
+<select size="1" name="start_day">
+<% (1 .. 31).each do |x| %>
+<option><%= x %></option>
+<% end %>
+</select>
+<select size="1" name="start_month">
+<% (1 .. 12).each do |x| %>
+<option value="<%= x %>"><%= t :"#{month_vars(x)["name"]}" %></option>
+<% end %>
+</select> -
+<select size="1" name="stop_day">
+<% (1 .. 31).each do |x| %>
+<option><%= x %></option>
+<% end %>
+</select>
+<select size="1" name="stop_month">
+<% (1 .. 12).each do |x| %>
+<option value="<%= x %>"><%= t :"#{month_vars(x)["name"]}" %></option>
+<% end %>
+</select>
+<input type="text" name="new_minimum_stay" size="10">
+<%= submit_tag t(:"global_edit") %>
+<% end %>

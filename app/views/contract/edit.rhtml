@@ -1,0 +1,31 @@
+<h1>Editing contract</h1>
+<%= error_messages_for 'contract' %>
+<% form_tag :action => :update, :id => @contract do |f| %>
+<%= hidden_field_tag 'customer_id' , @contract.customer.id %>
+<p><b>Customer: <%= @contract.customer.name %></b><br>
+<%= link_to 'edit', { :action => 'edit', :controller => 'customer', :id => @contract.customer.id } %>
+
+
+  <p><b>Room:</b><br>
+
+  <select name="contract[room_id]">
+   <% @rooms.each do |room| %>
+       <option value="<%= room.id %>"
+	   <%= ' selected' if room.id == @contract.room_id %>>
+         <%= room.name %>
+       </option>
+   <% end %>
+  </select>
+
+  <%= render :partial => 'form' %>
+  <b>Addons<br><br>
+  <% for addon in @addons %>
+  <input type="checkbox" id="<%= addon.id %>"
+                         name="addon_ids[]"
+                         value="<%= addon.id %>"
+                         <%if @contract.addons.include? addon %>checked="checked"<% end %>><%= addon.name %>
+  <% end %>
+ <br><br>
+  <%= submit_tag t(:"global_edit") %>
+<% end %>
+

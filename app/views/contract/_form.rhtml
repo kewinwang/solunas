@@ -1,0 +1,39 @@
+
+
+<!--[form:contract]-->
+
+<p><label for="contract_total"><%= t :"global_total" %></label><br/>
+<%= text_field 'contract', 'total'  %></p>
+
+<span id="calendar_departure">
+  <p><label for="contract_arrival"><%= t :"global_arrival" %></label><br/>
+
+  <%= calendar_date_select_tag "contract[arrival]", @contract.arrival,
+	:buttons => false,
+	:after_close => "Form.Element.enable('contract[departure]')",
+	:valid_date_check => "date > (new Date()).stripTime()" %>
+</span>
+
+<span id="calendar_departure">
+  <p><label for="contract_departure"><%= t :"global_departure" %></label><br/>
+
+  <%= calendar_date_select_tag "contract[departure]", @contract.departure,
+	:buttons => false,
+	:valid_date_check => "var arrival = (new Date(Form.Element.getValue('contract[arrival]'))).stripTime();
+            return date > arrival" %>
+</span>
+
+<p><label for="contract_adults"><%= t :"global_adult" %></label><br/>
+<%= select('contract', 'adults', (1..100).collect { |e| [e, e] })  %></p>
+
+<p><label for="contract_children"><%= t :"global_children" %></label><br/>
+<%= select('contract', 'children', (1..100).collect { |e| [e, e] })  %></p>
+
+
+<script type="text/javascript">
+  Event.observe(window, 'load', function() {
+    Form.Element.disable('contract[departure]');
+  });
+</script>
+<!--[eoform:contract]-->
+

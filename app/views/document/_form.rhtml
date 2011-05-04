@@ -1,0 +1,10 @@
+<%= error_messages_for 'document' %>
+
+<!--[form:document]-->
+<p><label for="document_name"><%= t :"global_name" %></label><br/>
+<%= text_field 'document', 'name'  %></p>
+
+<p><label for="document_rhtml"><%= t :"document.line_1" %></label><br/>
+<%= text_area 'document', 'rhtml'  %></p>
+<!--[eoform:document]-->
+

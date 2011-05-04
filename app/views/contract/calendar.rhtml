@@ -1,0 +1,21 @@
+<style TYPE="text/css">
+<!--
+img{vertical-align:middle;}
+--!>
+</style>
+
+<h1><%= t :"contract.calendar.header" %></h1>
+<div id="update_div"></div>
+
+<% if Contract.count(:all) > 0 %>
+  <div id="notice">
+    <%= t :"contract.calendar.choose_1" %>
+    <%= render_component(:action => "choose_calendar") %>
+  </div>
+  <div id="notice">
+    <%= t :"contract.calendar.choose_2" %>
+    <%= render_component(:action => "choose_calendar_by_year") %>
+  </div>
+<% else %>
+  <%= t :"contract.calendar.missing_properties" %>
+<% end %>

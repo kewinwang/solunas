@@ -1,0 +1,95 @@
+--- 
+number: 
+  format: 
+    delimiter: ","
+  currency: 
+    format: 
+      delimiter: ","
+name: Name
+activerecord: 
+  errors: 
+    messages: 
+      greater_than_or_equal_to: must be greater than or equal to {{count}}
+      less_than_or_equal_to: must be less than or equal to {{count}}
+      confirmation: doesn't match confirmation
+      blank: can't be blank
+      exclusion: is reserved
+      invalid: is invalid
+      odd: must be odd
+      wrong_length: is the wrong length (should be {{count}} characters)
+      too_short: is too short (minimum is {{count}} characters)
+      even: must be even
+      empty: can't be empty
+      less_than: must be less than {{count}}
+      greater_than: must be greater than {{count}}
+      equal_to: must be equal to {{count}}
+      taken: has already been taken
+      too_long: is too long (maximum is {{count}} characters)
+      accepted: must be accepted
+      not_a_number: is not a number
+      inclusion: is not included in the list
+    template: 
+      body: "There were problems with the following fields:"
+      header: 
+        one: 1 error prohibited this {{model}} from being saved
+        other: "{{count}} errors prohibited this {{model}} from being saved"
+time: 
+  am: am
+  formats: 
+    default: "%a, %d %b %Y %H:%M:%S %z"
+    short: "%d %b %H:%M"
+    long: "%B %d, %Y %H:%M"
+  pm: pm
+date: 
+  formats: 
+    default: "%Y-%m-%d"
+    short: "%b %d"
+    long: "%B %d, %Y"
+support: 
+  array: 
+    words_connector: ", "
+    last_word_connector: ", and "
+    two_words_connector: " and "
+Create: Create
+customer: 
+  new: New Customer
+  howto_create_customer: To create a new customer fill out form and press
+  create: Create
+datetime: 
+  prompts: 
+    day: Day
+  distance_in_words: 
+    less_than_x_minutes: 
+      one: less than a minute
+      other: less than {{count}} minutes
+    x_days: 
+      one: 1 day
+      other: "{{count}} days"
+    x_seconds: 
+      one: 1 second
+      other: "{{count}} seconds"
+    x_minutes: 
+      one: 1 minute
+      other: "{{count}} minutes"
+    x_months: 
+      one: 1 month
+      other: "{{count}} months"
+    less_than_x_seconds: 
+      one: less than 1 second
+      other: less than {{count}} seconds
+    about_x_hours: 
+      one: about 1 hour
+      other: about {{count}} hours
+    about_x_months: 
+      one: about 1 month
+      other: about {{count}} months
+    about_x_years: 
+      one: about 1 year
+      other: about {{count}} years
+    over_x_years: 
+      one: over 1 year
+      other: over {{count}} years
+    half_a_minute: half a minute
+user_admin: 
+  integration: 
+    part_3: guide for a quick introduction on how to set up the application

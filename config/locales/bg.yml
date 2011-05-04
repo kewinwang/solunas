@@ -1,0 +1,550 @@
+--- 
+bg: 
+  name: !binary |
+    0JjQvNC1
+
+  number: 
+    format: 
+      separator: .
+      precision: 3
+      delimiter: " "
+    human: 
+      format: 
+        precision: 1
+        delimiter: ""
+      storage_units: 
+        format: "%n %u"
+        units: 
+          kb: !binary |
+            0JrQkQ==
+
+          tb: !binary |
+            0KLQkQ==
+
+          gb: !binary |
+            0JPQkQ==
+
+          byte: 
+            many: !binary |
+              0LHQsNC50YI=
+
+            few: !binary |
+              0LHQsNC50YLQsA==
+
+            one: !binary |
+              0LHQsNC50YI=
+
+            other: !binary |
+              0LHQsNC50YLQsA==
+
+          mb: !binary |
+            0JzQkQ==
+
+    percentage: 
+      format: 
+        delimiter: ""
+    currency: 
+      format: 
+        format: "%n %u"
+        unit: !binary |
+          0LvQsi4=
+
+        separator: .
+        precision: 2
+        delimiter: " "
+    precision: 
+      format: 
+        delimiter: ""
+  activerecord: 
+    errors: 
+      messages: 
+        greater_than_or_equal_to: !binary |
+          0LzQvtC20LUg0LTQsCDQtSDRgdGK0YEg0YHRgtC+0LnQvdC+0YHRgiwg0L/Q
+          vi3Qs9C+0LvRj9C80LAg0LjQu9C4INGA0LDQstC90LAg0L3QsCB7e2NvdW50
+          fX0=
+
+        confirmation: !binary |
+          0L3QtSDRgdGK0L7RgtCy0LXRgtGB0YLQstCwINC90LAg0L/QvtGC0LLRitGA
+          0LbQtNC10L3QuNC10YLQvg==
+
+        less_than_or_equal_to: !binary |
+          0LzQvtC20LUg0LTQsCDQtSDRgdGK0YEg0YHRgtC+0LnQvdC+0YHRgiwg0L/Q
+          vi3Qs9C+0LvRj9C80LAg0LjQu9C4INGA0LDQstC90LAg0L3QsCB7e2NvdW50
+          fX0=
+
+        blank: !binary |
+          0L3QtSDQvNC+0LbQtSDQtNCwINC1INCx0LXQtyDRgdGC0L7QudC90L7RgdGC
+
+        invalid: !binary |
+          0YHRitC00YrRgNC20LAg0L3QtdCy0Y/RgNC90LAg0YHRgtC+0LnQvdC+0YHR
+          gg==
+
+        exclusion: !binary |
+          0YHRitC00YrRgNC20LAg0L/RgNC10LTQstCw0YDQuNGC0LXQu9C90L4g0LfQ
+          sNC00LDQtNC10L3QsCDRgdGC0L7QudC90L7RgdGC
+
+        odd: !binary |
+          0LzQvtC20LUg0LTQsCDQtSDQtdC00LjQvdGB0YLQstC10L3QviDRh9C10YLQ
+          vdC+
+
+        empty: !binary |
+          0L3QtSDQvNC+0LbQtSDQtNCwINC1INC/0YDQsNC30L3Qvg==
+
+        even: !binary |
+          0LzQvtC20LUg0LTQsCDQtSDQtdC00LjQvdGB0YLQstC10L3QviDQvdC10YfQ
+          tdGC0L3Qvg==
+
+        too_short: !binary |
+          0LUg0L/RgNC10LrQsNC70LXQvdC+INC60YrRgdCwICjQvNC40L3QuNC80YPQ
+          vCDQtSB7e2NvdW50fX0g0LfQvdCw0LrQsCk=
+
+        wrong_length: !binary |
+          b25l0LUg0YEg0LPRgNC10YjQvdCwINC00YrQu9C20LjQvdCwICjRgtGA0Y/Q
+          sdCy0LAg0LTQsCDQtSDRgSDQtNGK0LvQttC40L3QsCwg0YDQsNCy0L3QsCDQ
+          vdCwIHt7Y291bnR9fSDRgdC40LzQstC+0LspZmV30LUg0YEg0LPRgNC10YjQ
+          vdCwINC00YrQu9C20LjQvdCwICjRgtGA0Y/QsdCy0LAg0LTQsCDQtSDRgSDQ
+          tNGK0LvQttC40L3QsCwg0YDQsNCy0L3QsCDQvdCwIHt7Y291bnR9fSDRgdC4
+          0LzQstC+0LvQsCltYW550LUg0YEg0LPRgNC10YjQvdCwINC00YrQu9C20LjQ
+          vdCwICjRgtGA0Y/QsdCy0LAg0LTQsCDQtSDRgSDQtNGK0LvQttC40L3QsCwg
+          0YDQsNCy0L3QsCDQvdCwIHt7Y291bnR9fSDRgdC40LzQstC+0LvQsClvdGhl
+          ctC1INGBINCz0YDQtdGI0L3QsCDQtNGK0LvQttC40L3QsCAo0YLRgNGP0LHQ
+          stCwINC00LAg0LUg0YEg0LTRitC70LbQuNC90LAsICDRgNCw0LLQvdCwINC9
+          0LAge3tjb3VudH19INGB0LjQvNCy0L7Qu9CwKQ==
+
+        less_than: !binary |
+          0LzQvtC20LUg0LTQsCDQtSDRgdGK0YEg0YHRgtC+0LnQvdC+0YHRgiwg0L/Q
+          vi3QvNCw0LvQutCwINC+0YIge3tjb3VudH19
+
+        equal_to: !binary |
+          0LzQvtC20LUg0LTQsCDQtSDQtdC00LjQvdGB0YLQstC10L3QviDRgdGK0YEg
+          0YHRgtC+0LnQvdC+0YHRgiwg0YDQsNCy0L3QsCDQvdCwIHt7Y291bnR9fQ==
+
+        greater_than: !binary |
+          0LzQvtC20LUg0LTQsCDQtSDRgdGK0YEg0YHRgtC+0LnQvdC+0YHRgiwg0L/Q
+          vi3Qs9C+0LvRj9C80LAg0L7RgiB7e2NvdW50fX0=
+
+        accepted: !binary |
+          0YLRgNGP0LHQstCwINC00LAg0YHQtSDQv9C+0YLQstGK0YDQtNC4
+
+        too_long: !binary |
+          b25l0LUg0YEg0L/RgNC10LrQsNC70LXQvdCwINC00YrQu9C20LjQvdCwICjQ
+          vdC1INC80L7QttC1INC00LAg0LUg0L/QvtCy0LXRh9C1INC+0YIge3tjb3Vu
+          dH19INGB0LjQvNCy0L7QuylmZXfQtSDRgSDQv9GA0LXQutCw0LvQtdC90LAg
+          0LTRitC70LbQuNC90LAgKNC90LUg0LzQvtC20LUg0LTQsCDQtSDQv9C+0LLQ
+          tdGH0LUg0L7RgiB7e2NvdW50fX0g0YHQuNC80LLQvtC70LApbWFuedC1INGB
+          INC/0YDQtdC60LDQu9C10L3QsCDQtNGK0LvQttC40L3QsCAo0L3QtSDQvNC+
+          0LbQtSDQtNCwINC1INC/0L7QstC10YfQtSDQvtGCIHt7Y291bnR9fSDRgdC4
+          0LzQstC+0LvQuClvdGhlctC1INGBINC/0YDQtdC60LDQu9C10L3QsCDQtNGK
+          0LvQttC40L3QsCAo0L3QtSDQvNC+0LbQtSDQtNCwINC1INC/0L7QstC10YfQ
+          tSDQvtGCIHt7Y291bnR9fSDRgdC40LzQstC+0LvQsCk=
+
+        taken: !binary |
+          0LLQtdGH0LUg0YHRitGJ0LXRgdGC0LLRg9Cy0LA=
+
+        inclusion: !binary |
+          0YHRitC00YrRgNC20LAg0L3QtdC/0YDQtdC00LLQuNC00LXQvdCwINGB0YLQ
+          vtC50L3QvtGB0YI=
+
+        not_a_number: !binary |
+          0L3QtSDQtSDRh9C40YHQu9C+
+
+      template: 
+        body: !binary |
+          0JLRitC30L3QuNC60L3QsNGF0LAg0L/RgNC+0LHQu9C10LzQuCDQv9GA0Lgg
+          0YHQu9C10LTQvdC40YLQtSDQv9C+0LvQtdGC0LA6
+
+        header: 
+          many: !binary |
+            e3ttb2RlbH19OiDQt9Cw0L/QuNGB0LAg0L3QtdGD0YHQv9C10YjQtdC9INC3
+            0LDRgNCw0LTQuCB7e2NvdW50fX0g0LPRgNC10YjQutC4
+
+          few: !binary |
+            e3ttb2RlbH19OiDQt9Cw0L/QuNGB0LAg0L3QtdGD0YHQv9C10YjQtdC9INC3
+            0LDRgNCw0LTQuCB7e2NvdW50fX0g0LPRgNC10YjQutC4
+
+          one: !binary |
+            e3ttb2RlbH19OiDQt9Cw0L/QuNGB0LAg0L3QtdGD0YHQv9C10YjQtdC9INC3
+            0LDRgNCw0LTQuCB7e2NvdW50fX0g0LPRgNC10YjQutCw
+
+          other: !binary |
+            e3ttb2RlbH19OiDQt9Cw0L/QuNGB0LAg0L3QtdGD0YHQv9C10YjQtdC9INC3
+            0LDRgNCw0LTQuCB7e2NvdW50fX0g0LPRgNC10YjQutC4
+
+  time: 
+    am: !binary |
+      0L/RgNC10LTQuCDQvtCx0Y/QtA==
+
+    formats: 
+      default: "%a, %d %b %Y, %H:%M:%S %z"
+      short: "%d %b, %H:%M"
+      long: "%d %B %Y, %H:%M"
+    pm: !binary |
+      0YHQu9C10LTQvtCx0LXQtA==
+
+  date: 
+    month_names: 
+    - !binary |
+      0K/QvdGD0LDRgNC4
+
+    - !binary |
+      0KTQtdCy0YDRg9Cw0YDQuA==
+
+    - !binary |
+      0JzQsNGA0YI=
+
+    - !binary |
+      0JDQv9GA0LjQuw==
+
+    - !binary |
+      0JzQsNC5
+
+    - !binary |
+      0K7QvdC4
+
+    - !binary |
+      0K7Qu9C4
+
+    - !binary |
+      0JDQstCz0YPRgdGC
+
+    - !binary |
+      0KHQtdC/0YLQtdC80LLRgNC4
+
+    - !binary |
+      0J7QutGC0L7QvNCy0YDQuA==
+
+    - !binary |
+      0J3QvtC10LzQstGA0Lg=
+
+    - !binary |
+      0JTQtdC60LXQvNCy0YDQuA==
+
+    standalone_day_names: 
+    - !binary |
+      0J3QtdC00LXQu9GP
+
+    - !binary |
+      0J/QvtC90LXQtNC10LvQvdC40Lo=
+
+    - !binary |
+      0JLRgtC+0YDQvdC40Lo=
+
+    - !binary |
+      0KHRgNGP0LTQsA==
+
+    - !binary |
+      0KfQtdGC0LLRitGA0YLRitC6
+
+    - !binary |
+      0J/QtdGC0YrQug==
+
+    - !binary |
+      0KHRitCx0L7RgtCw
+
+    abbr_day_names: 
+    - !binary |
+      0J3QtA==
+
+    - !binary |
+      0J/QvQ==
+
+    - !binary |
+      0JLRgg==
+
+    - !binary |
+      0KHRgA==
+
+    - !binary |
+      0KfRgg==
+
+    - !binary |
+      0J/Rgg==
+
+    - !binary |
+      0KHQsQ==
+
+    order: 
+    - :day
+    - :month
+    - :year
+    formats: 
+      default: "%d.%m.%Y"
+      short: "%d %b"
+      long: "%d %B %Y"
+    day_names: 
+    - !binary |
+      0L3QtdC00LXQu9GP
+
+    - !binary |
+      0L/QvtC90LXQtNC10LvQvdC40Lo=
+
+    - !binary |
+      0LLRgtC+0YDQvdC40Lo=
+
+    - !binary |
+      0YHRgNGP0LTQsA==
+
+    - !binary |
+      0YfQtdGC0LLRitGA0YLRitC6
+
+    - !binary |
+      0L/QtdGC0YrQug==
+
+    - !binary |
+      0YHRitCx0L7RgtCw
+
+    abbr_month_names: 
+    - !binary |
+      0Y/QvdGDLg==
+
+    - !binary |
+      0YTQtdCyLg==
+
+    - !binary |
+      0LzQsNGA0YI=
+
+    - !binary |
+      0LDQv9GALg==
+
+    - !binary |
+      0LzQsNC5
+
+    - !binary |
+      0Y7QvdC4
+
+    - !binary |
+      0Y7Qu9C4
+
+    - !binary |
+      0LDQstCzLg==
+
+    - !binary |
+      0YHQtdC/Lg==
+
+    - !binary |
+      0L7QutGCLg==
+
+    - !binary |
+      0L3QvtC10Lwu
+
+    - !binary |
+      0LTQtdC6Lg==
+
+  support: 
+    array: 
+      last_word_connector: !binary |
+        INC4IA==
+
+      words_connector: ", "
+      two_words_connector: !binary |
+        INC4IA==
+
+      skip_last_comma: true
+      sentence_connector: !binary |
+        0Lg=
+
+  Create: !binary |
+    0KHRitC30LTQsNC5
+
+  customer: 
+    new: !binary |
+      0J3QvtCyINC/0L7RgtGA0LXQsdC40YLQtdC7
+
+    howto_create_customer: !binary |
+      0JfQsCDQtNCwINGB0YrQt9C00LDQtNC10YLQtSDQvdC+0LIg0L/QvtGC0YDQ
+      tdCx0LjRgtC10LssINC/0L7Qv9GK0LvQvdC10YLQtSDRhNC+0YDQvNCw0YLQ
+      sCDQuCDQvdCw0YLQuNGB0L3QtdGC0LU=
+
+    notes: !binary |
+      0J3Rj9C60L7QuSDQvdC10YnQsCwg0LrQvtC40YLQviDQvNC+0LbQtSDQtNCw
+      INCS0Lgg0LjQvdGC0LXRgNC10YHRg9Cy0LDRgg==
+
+    create: !binary |
+      0KHRitC30LTQsNC5
+
+  user_admin: 
+    integration: 
+      first_step: !binary |
+        0J/RitGA0LLQsNGC0LAg0YHRgtGK0L/QutCw
+
+      part_1: !binary |
+        0JjRgdC60LDRgtC1INC70Lgg0LTQsCDQvdCw0L/RgNCw0LLQuNC8INC40L3R
+        gtC10LPRgNCw0YbQuNGP0YLQsCDQvdCwINCh0L7Qu9GD0L3QsNGBINCy0YrQ
+        siDQktCw0YjQuNGPINGB0YrRidC10YHRgtCy0YPQstCw0Ykg0YPQtdCx0YHQ
+        sNC50YI/INCd0Y/QvNCwINC/0YDQvtCx0LvQtdC8IC0g0L/QuNGI0LXRgtC1
+        INC90Lgg0L3QsA==
+
+      part_2: !binary |
+        0JzQvtC70Y8sINC+0LHRitGA0L3QtdGC0LUg0LLQvdC40LzQsNC90LjQtSDQ
+        vdCwIA==
+
+      part_3: !binary |
+        0L7RgiDRgNGK0LrQvtCy0L7QtNGB0YLQstC+0YLQviDQt9CwINGD0LLQvtC0
+        INCyINC40L3RgdGC0LDQu9Cw0YbQuNGP0YLQsCDQvdCwINC/0YDQvtCz0YDQ
+        sNC80LDRgtCwLg==
+
+    welcome: !binary |
+      0JTQvtCx0YDQtSDQtNC+0YjRitC7LCB7e3VzZXJuYW1lfX0=
+
+    notes: !binary |
+      0J3Rj9C60L7QuSDQvdC10YnQsCwg0LrQvtC40YLQviDQvNC+0LbQtSDQtNCw
+      INCS0Lgg0LjQvdGC0LXRgNC10YHRg9Cy0LDRgg==
+
+    backoffice: !binary |
+      0JTQvtCx0YDQtSDQtNC+0YjQu9C4INCy0YrQsiDQktCw0YjQuNGPINCx0LXQ
+      utC+0YTQuNGB
+
+  datetime: 
+    prompts: 
+      minute: !binary |
+        0JzQuNC90YPRgtC4
+
+      second: !binary |
+        0KHQtdC60YPQvdC00Lg=
+
+      month: !binary |
+        0JzQtdGB0LXRhg==
+
+      hour: !binary |
+        0KfQsNGB0LA=
+
+      day: !binary |
+        0JTQtdC9
+
+      year: !binary |
+        0JPQvtC00LjQvdCw
+
+    distance_in_words: 
+      less_than_x_minutes: 
+        many: !binary |
+          0L/Qvi3QvNCw0LvQutC+INC+0YIge3tjb3VudH19INC80LjQvdGD0YLQuA==
+
+        few: !binary |
+          0L/Qvi3QvNCw0LvQutC+INC+0YIge3tjb3VudH19INC80LjQvdGD0YLQuA==
+
+        one: !binary |
+          0L/Qvi3QvNCw0LvQutC+INC+0YIge3tjb3VudH19INC80LjQvdGD0YLQsA==
+
+        other: !binary |
+          0L/Qvi3QvNCw0LvQutC+INC+0YIge3tjb3VudH19INC80LjQvdGD0YLQuA==
+
+      x_days: 
+        many: !binary |
+          e3tjb3VudH19INC00L3QuA==
+
+        few: !binary |
+          e3tjb3VudH19INC00L3QuA==
+
+        one: !binary |
+          e3tjb3VudH19INC00LXQvQ==
+
+        other: !binary |
+          e3tjb3VudH19INC00LXQvdCw
+
+      x_seconds: 
+        many: !binary |
+          e3tjb3VudH19INGB0LXQutGD0L3QtNC4
+
+        few: !binary |
+          e3tjb3VudH19INGB0LXQutGD0L3QtNC4
+
+        one: !binary |
+          e3tjb3VudH19INGB0LXQutGD0L3QtNCw
+
+        other: !binary |
+          e3tjb3VudH19INGB0LXQutGD0L3QtNC4
+
+      about_x_hours: 
+        many: !binary |
+          0L7QutC+0LvQviB7e2NvdW50fX0g0YfQsNGB0LA=
+
+        few: !binary |
+          0L7QutC+0LvQviB7e2NvdW50fX0g0YfQsNGB0LA=
+
+        one: !binary |
+          0L7QutC+0LvQviB7e2NvdW50fX0g0YfQsNGB
+
+        other: !binary |
+          0L7QutC+0LvQviB7e2NvdW50fX0g0YfQsNGB0LA=
+
+      less_than_x_seconds: 
+        many: !binary |
+          0L/Qvi3QvNCw0LvQutC+INC+0YIge3tjb3VudH19INGB0LXQutGD0L3QtNC4
+
+        few: !binary |
+          0L/Qvi3QvNCw0LvQutC+INC+0YIge3tjb3VudH19INGB0LXQutGD0L3QtNC4
+
+        one: !binary |
+          0L/Qvi3QvNCw0LvQutC+INC+0YIge3tjb3VudH19INGB0LXQutGD0L3QtNC4
+
+        other: !binary |
+          0L/Qvi3QvNCw0LvQutC+INC+0YIge3tjb3VudH19INGB0LXQutGD0L3QtNC4
+
+      x_months: 
+        many: !binary |
+          e3tjb3VudH19INC80LXRgdC10YbQuA==
+
+        few: !binary |
+          e3tjb3VudH19INC80LXRgdC10YbQsA==
+
+        one: !binary |
+          e3tjb3VudH19INC80LXRgdC10YY=
+
+        other: !binary |
+          e3tjb3VudH19INC80LXRgdC10YbQsA==
+
+      x_minutes: 
+        many: !binary |
+          e3tjb3VudH19INC80LjQvdGD0YLQuA==
+
+        few: !binary |
+          e3tjb3VudH19INC80LjQvdGD0YLQuA==
+
+        one: !binary |
+          e3tjb3VudH19INC80LjQvdGD0YLQsA==
+
+        other: !binary |
+          e3tjb3VudH19INC80LjQvdGD0YLQuA==
+
+      about_x_years: 
+        many: !binary |
+          0L7QutC+0LvQviB7e2NvdW50fX0g0LPQvtC00LjQvdC4
+
+        few: !binary |
+          0L7QutC+0LvQviB7e2NvdW50fX0g0LPQvtC00LjQvdC4
+
+        one: !binary |
+          0L7QutC+0LvQviB7e2NvdW50fX0g0LPQvtC00LjQvdCw
+
+        other: !binary |
+          0L7QutC+0LvQviB7e2NvdW50fX0g0LPQvtC00LjQvdC4
+
+      about_x_months: 
+        many: !binary |
+          0L7QutC+0LvQviB7e2NvdW50fX0g0LzQtdGB0LXRhtCw
+
+        few: !binary |
+          0L7QutC+0LvQviB7e2NvdW50fX0g0LzQtdGB0LXRhtCw
+
+        one: !binary |
+          0L7QutC+0LvQviB7e2NvdW50fX0g0LzQtdGB0LXRhtCw
+
+        other: !binary |
+          0L7QutC+0LvQviB7e2NvdW50fX0g0LzQtdGB0LXRhtCw
+
+      over_x_years: 
+        many: !binary |
+          0L3QsNC0IHt7Y291bnR9fSDQs9C+0LTQuNC90Lg=
+
+        few: !binary |
+          0L3QsNC0IHt7Y291bnR9fSDQs9C+0LTQuNC90Lg=
+
+        one: !binary |
+          0L3QsNC0IHt7Y291bnR9fSDQs9C+0LTQuNC90LA=
+
+        other: !binary |
+          0L3QsNC0IHt7Y291bnR9fSDQs9C+0LTQuNC90Lg=
+
+      half_a_minute: !binary |
+        0L/Qvi3QvNCw0LvQutC+INC+0YIg0LzQuNC90YPRgtCw
+

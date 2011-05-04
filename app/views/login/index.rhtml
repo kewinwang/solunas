@@ -1,0 +1,16 @@
+<%  @page_title = "Welcome to Solunas" -%>
+
+<h1>Solunas 2 Backoffice</h1>
+
+<p>
+  <%= "Hello".t %> <%= @user.name %>,<br><br>
+  <%= "welcome to your Solunas backoffice. Some notes of interest".t %>:<br><br>
+
+  <ul>
+  <li><%= "Your ID".t %>: <%= @user.id %></li>
+  <% if @admin == 0 %>
+  <li><%= "Total contracts".t %>: <%= @contract_count %></li>
+  <% end %>
+  </ul>
+</p>
+

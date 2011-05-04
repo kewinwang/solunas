@@ -1,0 +1,20 @@
+<%= t :"user_admin.menu.header" %>:
+<ul>
+<% if session[:admin]==1 -%>
+<% 
+  # this makes no sense since the administrator has its own controller and views 
+%>
+<li><%= link_to(t(:"admin.add_user.add_user"), :controller => :login, :action => :add_user) %></li>
+<li><%= link_to(t(:"admin.list_users.header"), :controller => :login, :action => :list_users) %></li>
+<li><%= link_to(t(:"admin.confirm_users"), :controller => :login, :action => :list_users_to_confirm) %></li>
+<% else %>
+<li><%= link_to(t(:"user_admin.manage_property"), :controller => :property, :action => :list) %></li>
+<li><%= link_to(t(:"user_admin.manage_room"), :controller => :room, :action => :list) %></li>
+<li><%= link_to(t(:"user_admin.public_code"), :controller => :property, :action => :public_code) %></li>
+<% end %>
+<li><%= link_to(t(:"user_admin.user_pref"), :controller => :user, :action => :edit) %></li>
+</ul>
+
+<hr noshade size="3" color="#eb8137">
+<a href="http://solunas.org/11.0.html"><%= t :"admin.menu.note" %></a>
+<hr noshade size="3" color="#eb8137">

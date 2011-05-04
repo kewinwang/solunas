@@ -1,0 +1,36 @@
+<h1><%= t :"document.header_3" %></h1>
+
+<% if !@documents.empty? %>
+<table>
+  <tr>
+
+    <th width="40%" align="left"><%= t(:"global_name") %></th>
+	<th width="60%"></th>
+
+  </tr>
+
+<% for document in @documents %>
+  <tr>
+
+    <td width="40%"><%= document.name %></td>
+
+    <td width="60%">| <%= link_to t(:"global_show"), :action => 'show', :id => document %>
+    | <%= link_to t(:"global_edit"), :action => 'edit', :id => document %>
+    | <%= link_to t(:"global_distroy"), { :action => 'destroy', :id => document }, 
+            :confirm => t(:"global_are_you_sure") %></td>
+  </tr>
+<% end %>
+</table>
+<% end %>
+<br />
+<br />
+<div class="roundedcornr_box_284975">
+   <div class="roundedcornr_top_284975"><div></div></div>
+      <div class="roundedcornr_content_284975"><p>
+         <%= will_paginate @documents %>
+         <br />
+         <br />
+         <%= link_to 'New document', :action => 'new' %></p>
+      </div>
+   <div class="roundedcornr_bottom_284975"><div></div></div>
+</div>

@@ -1,0 +1,40 @@
+<h1><%= t :"contract.list.header" %></h1>
+
+<table>
+  <tr>
+  <td id="listitem" width="15%"><b><%= t :"global_name" %></b></td>
+  <td id="listitem" width="15%"><b><%= t :"global_arrival" %></b></td>
+  <td id="listitem" width="15%"><b><%= t :"global_departure" %></b></td>
+  <td id="listitem" width="15%"><b><%= t :"global_room" %></b></td>
+  <td id="listitem" width="15%"><b><%= t :"global_pending" %></b></td>
+  <td id="listitem" width="25%"></td>
+  </tr>
+
+<% if !@contracts.empty? %>
+<% for contract in @contracts %>
+  <tr>
+  <td id="listitem" width="15%"><%= contract.customer.name %></td>
+  <td id="listitem" width="15%"><%= contract.arrival %></td>
+  <td id="listitem" width="15%"><%= contract.departure %></td>
+  <td id="listitem" width="15%"><%= contract.room.name %></td>
+  <td id="listitem" width="15%"><%= contract.pending %></td>
+
+    <td width="25%"><%= link_to(t(:"global_show"), :action => 'show', :id => contract) %>
+    | <%= link_to(t(:"global_edit"), :action => 'edit', :id => contract) %>
+    | <%= link_to(t(:"global_destroy"), { :action => 'destroy', :id => contract }, :confirm => 'Are you sure?') %></td>
+  </tr>
+<% end %>
+</table>
+<br />
+<div class="roundedcornr_box_284975">
+   <div class="roundedcornr_top_284975"><div></div></div>
+      <div class="roundedcornr_content_284975"><p>
+        <%= will_paginate @contracts if !@contracts.empty? %>
+<br /><br />
+
+<%= link_to(t(:"contract.new"), :action => 'new', :id => @customer_id) %></p>
+      </div>
+   <div class="roundedcornr_bottom_284975"><div></div></div>
+</div>
+<% end %>
+

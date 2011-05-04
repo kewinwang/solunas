@@ -1,0 +1,97 @@
+<style type="text/css">
+label.colors{
+  width: 5.65em;
+  float: left;
+  text-align: right;
+  margin-right: 0.5em;
+  margin-top: 0.2em;
+  display: block;
+}
+input[type="text"].color{
+  width: 55px;
+  text-align: center;
+}
+</style>
+
+<%= error_messages_for 'user' %>
+
+<!--[form:user]-->
+
+<p><b><%= t :"global_password"  %></b><br/>
+<%= password_field_tag(name = "password", value = nil, options = {}) %>
+<br/><%= t :"admin.edit.leave_blank" %><br/></p>
+
+<p><label for="user_homepage"><b><%= t :"global_homepage" %></b></label><br/>
+<%= text_field 'user', 'homepage'  %></p>
+
+<p><label for="user_email"><b><%= t :"global_email"  %></b></label><br/>
+<%= text_field 'user', 'email'  %></p>
+
+<% if session[:admin]==0 %>
+
+<p><label for="user_datestring"><b><%= t :"global_datestring"  %></b></label><br/>
+<%= text_field 'user', 'datestring'  %></p>
+
+<p><label for="user_creditcard"><b><%= t :"user_admin.credit_card_processing"  %></b></label>
+<%= check_box 'user', 'creditcard'  %>
+<br/>
+
+<p><label for="user_language"><b><%= t :"global_language" %></b></label>
+<%= select('user', 'language', UserController::LANG_FILES.sort.collect { |e| [ e, e ] }) %>
+<br/></p>
+
+<p><label for="user_currency"><b><%= t :"global_currency" %></b></label>
+<select id="user_currency" name="user[currency]">
+<option value="AUD" <%= @user.currency.eql?("AUD") ? "selected": "0" %>>Australian dollar (AUD)</option>
+<option value="BRL" <%= @user.currency.eql?("BRL") ? "selected": "" %>>Brazilian real (R$)</option>
+<option value="CAD" <%= @user.currency.eql?("CAD") ? "selected": "" %>>Canadian dollar (CAD)</option>
+<option value="CLP" <%= @user.currency.eql?("CLP") ? "selected": "" %>>Chilean peso (CL$)</option>
+<option value="CZK" <%= @user.currency.eql?("CZK") ? "selected": "" %>>Czech koruna (CZK)</option>
+<option value="DKK" <%= @user.currency.eql?("DKK") ? "selected": "" %>>Danish krone (DKK)</option>
+<option value="EUR" <%= @user.currency.eql?("EUR") ? "selected": "" %>>Euro (&#x20AC;)</option>
+<option value="HUF" <%= @user.currency.eql?("HUF") ? "selected": "" %>>Hungarian forint (HUF)</option>
+<option value="INR" <%= @user.currency.eql?("INR") ? "selected": "" %>>Indian rupee (INR)</option>
+<option value="ILS" <%= @user.currency.eql?("ILS") ? "selected": "" %>>Israeli new sheqel (ILS)</option>
+<option value="JPY" <%= @user.currency.eql?("JPY") ? "selected": "" %>>Japanese yen (&#165;)</option>
+<option value="MXN" <%= @user.currency.eql?("MXN") ? "selected": "" %>>Mexican peso (MXN)</option>
+<option value="NOK" <%= @user.currency.eql?("NOK") ? "selected": "" %>>Norwegian krone (NOK)</option>
+<option value="PLN" <%= @user.currency.eql?("PLN") ? "selected": "" %>>Polish zloty (PLN)</option>
+<option value="GBP" <%= @user.currency.eql?("GBP") ? "selected": "" %>>Pound sterling (&#163;)</option>
+<option value="SGD" <%= @user.currency.eql?("SGD") ? "selected": "" %>>Singapore dollar (SGD)</option>
+<option value="SEK" <%= @user.currency.eql?("SEK") ? "selected": "" %>>Swedish krona (SEK)</option>
+<option value="CHF" <%= @user.currency.eql?("CHF") ? "selected": "" %>>Swiss franc (CHF)</option>
+<option value="AED" <%= @user.currency.eql?("AED") ? "selected": "" %>>U.A.E. dirham (AED)</option>
+<option value="USD" <%= @user.currency.eql?("USD") ? "selected": "" %>>U.S. dollar (US$)</option>
+</select>
+<br/></p>
+
+<p><label for="user_header"><b><%= t :"global_header"  %></b></label><br/>
+<%= text_area 'user', 'header', "cols" => 90, "rows" => 10 %></p>
+
+<p><label for="user_footer"><b><%= t :"global_footer" %></b></label><br/>
+<%= text_area 'user', 'footer', "cols" => 90, "rows" => 10  %></p>
+
+<br>
+
+<p><label class="colors" for="color_arrival"><b><%= t :"global_arrival" %></b></label>
+<%= text_field 'user', 'calendar_color_arrival', 
+      {:class => :color, :value => @calendar_color_arrival || "#45FF51"} %></p>
+
+<p><label class="colors" for="color_departure"><b><%= t :"global_departure" %></b></label>
+<%= text_field 'user', 'calendar_color_departure', 
+      {:class => :color, :value => @calendar_color_departure || "#8AFFD4"} %></p>
+
+<p><label class="colors" for="color_free"><b><%= t :"global_free" %></b></label>
+<%= text_field 'user', 'calendar_color_free', 
+      {:class => :color, :value => @calendar_color_free || "#FFFCA8"} %></p>
+
+<p><label class="colors" for="color_blocked"><b><%= t :"global_blocked" %></b></label>
+<%= text_field 'user', 'calendar_color_blocked', 
+      {:class => :color, :value => @calendar_color_blocked || "#CC2F08"} %></p>
+
+<br>
+
+<% end %>
+
+<!--[eoform:user]-->
+

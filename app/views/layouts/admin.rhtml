@@ -1,0 +1,78 @@
+<html>
+<head>
+<title>Solunas 2 Backoffice Ajax'd</title>
+<%= stylesheet_link_tag "admin", :media => "all" %>
+<%= javascript_include_tag "prototype", "effects" %>
+<!--
+#************************************************************************/
+#* SOLUNAS BOOKING ENGINE                                               */
+#* ======================                                               */
+#*                                                                      */
+#* Copyright (c) 2006 by Marc Isemann                                   */
+#* http://sourceforge.net/projects/solunas                              */
+#* http://www.solunas.org                                               */
+#*                                                                      */
+#* This program is free software. You can redistribute it and/or modify */
+#* it under the terms of the GNU General Public License as published by */
+#* the Free Software Foundation; either version 2 of the License.       */
+#************************************************************************/
+
+-->
+</head>
+
+<body>
+
+<table id="main" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" colspan="2" id="cell_top"><img border="0" src="/images/logo_compl.gif" align="right" width="197" height="66">
+      <br>
+    </td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2" id="cell_mid">
+
+    |&nbsp; <%= "Statistics" %>&nbsp;
+    |&nbsp; <a href="http://solunas.org/11.0.html" target="_blank"><%= "Help" %></a>&nbsp;
+
+    |&nbsp; <%= link_to("Log out",    :controller => "login",
+                                  :action => "logout") %>&nbsp; |
+      <br>
+    </td>
+  </tr>
+
+  <tr>
+    <td id="menu"><div style="width: 150px;">
+    <% if session[:user_id] -%>
+    <%= render(:partial => "show_menu") %>
+    <% end -%>
+          <p align="center">
+          <form action="https://www.paypal.com/cgi-bin/webscr" target="paypal" method="post">
+	  <input type="hidden" name="bn" value="AMPPFPWZ.301">
+	  <input type="hidden" name="cmd" value="_xclick">
+	  <input type="hidden" name="business" value="marc@isemann.com" > 
+	  <input type="hidden" name="item_name" value="Solunas">
+	  <input type="hidden" name="item_number" value="">
+	  <input type="hidden" name="amount" value="">
+	  <input type="hidden" name="currency_code" value="EUR">
+	  <input type="hidden" name="image_url" value="http://www.solunas.org/fileadmin/solunas/logo_compl.gif">
+	  <input type="hidden" name="return" value="http://www.solunas.org/index.php?id=49">
+	  <input type="hidden" name="cancel_return" value="http://www.solunas.org/index.php">
+	  <input type="image" src="http://images.paypal.com/images/x-click-but04.gif" border="0" name="submit" width="62" height="31">
+	  </form>
+          </p>
+          </div>
+          </td>
+    <td id="content"><div id="notice">ADMIN STATUS</div><% if flash[:notice] -%>
+          <div id="notice"><%= flash[:notice] %></div>
+        <% end -%>
+
+	<%= @content_for_layout %></td>
+  </tr>
+</table>
+<a href="http://www.solunas.org">Solunas.org</a>
+<% if session[:user_id] -%> | Logged in ID: <%= session[:user_id] %><% end %>
+
+
+</body>
+
+</html>

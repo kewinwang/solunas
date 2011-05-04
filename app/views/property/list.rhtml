@@ -1,0 +1,39 @@
+<h1><%= "Listing properties" %></h1>
+
+<% if !@properties.empty? %>
+<table>
+  <tr class="list_heading">
+    <th width="15%"><%= t :"global_id" %></th>
+    <th width="15%"><%= t :"global_name" %></th>
+    <th width="15%"><%= t :"global_city" %></th>
+    <th width="15%"><%= t :"global_country" %></th>
+    <th width="40%"></th>
+  </tr>
+
+<% for property in @properties %>
+  <tr>
+    <td width="15%"><%= property.id %></td>
+    <td width="15%"><%= property.name %></td>
+    <td width="15%"><%= property.city %></td>
+    <td width="15%"><%= property.country %></td>
+
+    <td width="40%">| <%= link_to t(:"global_show"), :action => 'show', :id => property %>
+    | <%= link_to t(:"global_edit"), :action => 'edit', :id => property %>
+    | <%= link_to t(:"global_destroy"), {:action => 'destroy', :id => property}, 
+                        :confirm => t(:"global_are_you_sure") %></td>
+  </tr>
+<% end %>
+</table>
+<% end %>
+
+<br />
+<div class="roundedcornr_box_284975">
+   <div class="roundedcornr_top_284975"><div></div></div>
+      <div class="roundedcornr_content_284975"><p>
+         <%= will_paginate @properties if !@properties.empty? %>
+         <br />
+         <br />
+         <%= link_to t(:"property.new"), :action => 'new' %></p>
+      </div>
+   <div class="roundedcornr_bottom_284975"><div></div></div>
+</div>

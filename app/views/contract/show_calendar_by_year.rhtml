@@ -1,0 +1,41 @@
+Calendar for <%= @room.property.name %> <%= @room.name %> <%= @year %>:</b><br><br>
+
+<!--
+<table id="table_calendar">
+   <tr>
+   <td width="100"></td>
+
+
+   <% (1 .. 31).each do |days| %>
+
+         <td style="padding: 0px; margin: 0px;" id="calendar" align="center"><%= days %></td>
+
+   <% end %>
+   </tr>
+</table>
+-->
+
+<% (1 .. 12).each do |x|
+     @month = month_vars(x, @year) %>
+  <table id="table_calendar" 
+      onmouseover="this.style.background='#F2EBAA'"
+      onmouseout="this.style.background='#FFF'">
+  <tr><td width="100"><b><%= t :"#{@month['name']}" %></b></td>
+  <% (1 .. @month["end"].to_i).each_with_index do |y, i| %>
+       <% i += 1 %>
+       <% if @calendar[x][y] == 1  %>
+          <td id="calendar_not_av" style="background:#<%= @user.calendar_color_blocked %>">
+            <span class="cal_col_blocked"><%= i %></span>
+       <% elsif @calendar[x][y] == 2 %>
+          <td id="calendar_av" style="background:#<%= @user.calendar_color_arrival %>">
+            <span class="cal_col_free"><%= i %></span>
+       <% elsif @calendar[x][y] == 3 %>
+          <td id="calendar_av" style="background:#<%= @user.calendar_color_departure %>">
+            <span class="cal_col_free"><%= i %></span>
+       <% else %>
+          <td id="calendar_av" style="background:#<%= @user.calendar_color_free %>">
+            <span class="cal_col_free"><%= i %></span>
+       <% end %>
+          </td>
+  <% end %></tr> </table>
+ <% end %>

@@ -1,0 +1,36 @@
+<h1><%= t :"admin.add_user.header" %></h1>
+
+<% @page_title = "Add a User" -%>
+<%= error_messages_for 'user' %>
+
+<% form_tag do |f| %>
+
+<table>
+  <tr>
+    <td><%= t :"admin.add_user.username" %>:</td>
+    <td><%= text_field("user", "name") %></td>
+  </tr>
+  <tr>
+    <td><%= t :"global_password" %>:</td>
+    <td><%= password_field("user", "password") %></td>
+  </tr>
+  <tr>
+    <td><%= t :"admin.admin" %>:</td>
+    <td><%= text_field("user", "admin") %></td>
+  </tr>
+  <tr>
+    <td><%= t :"admin.homepage" %>:</td>
+    <td><%= text_field("user", "homepage") %></td>
+  </tr>
+  <tr>
+    <td><%= t :"global_email" %>:</td>
+    <td><%= text_field("user", "email") %></td>
+  </tr>
+
+  <tr>
+    <td></td>
+    <td><%= submit_tag t(:"global_submit") %></td>
+  </tr>
+</table>
+
+<% end %>

@@ -1,0 +1,64 @@
+<h1><%= t :"customer.header_show" %></h1>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+   <tr>
+    <td width="14%"><b><%= t :"global_customer" %>:</b></td>
+    <td width="86%"><%= @contract.customer.name %></td>
+  </tr>
+  <tr>
+    <td width="14%"><b><%= t :"global_room" %>:</b></td>
+    <td width="86%"><%= @contract.room.name %></td>
+  </tr>
+  <tr>
+    <td width="14%"><b><%= t :"global_total" %>:</b></td>
+    <td width="86%"><%= @contract.total %></td>
+  </tr>
+  <tr>
+    <td width="14%"><b><%= t :"global_arrival" %>:</b></td>
+    <td width="86%"><%= @contract.arrival %></td>
+  </tr>
+  <tr>
+    <td width="14%"><b><%= t :"global_departure" %>:</b></td>
+    <td width="86%"><%= @contract.departure %></td>
+  </tr>
+  <tr>
+    <td width="14%"><b><%= t :"global_adult" %>:</b></td>
+    <td width="86%"><%= @contract.adults %></td>
+  </tr>
+  <tr>
+    <td width="14%"><b><%= t :"global_children" %>:</b></td>
+    <td width="86%"><%= @contract.children %></td>
+  </tr>
+  <% if @user.creditcard == true %>
+  <tr>
+    <td width="14%"><b><%= t :"global_credit_card_number" %>:</b></td>
+    <td width="86%"><%= @contract.cc_number %></td>
+  </tr>
+  <tr>
+    <td width="14%"><b><%= t :"global_credit_card_expire_date" %>:</b></td>
+    <td width="86%"><%= @contract.cc_expire_date %></td>
+  </tr>
+  <tr>
+    <td width="14%"><b><%= t :"global_credit_card_cvv_code" %>:</b></td>
+    <td width="86%"><%= @contract.cc_cvv %></td>
+  </tr>
+  <% end %>
+  <tr>
+    <td width="30%"><b><%= t :"global_pending" %>:</b></td>
+    <td width="86%"><%= @contract.pending %></td>
+  </tr>
+  <tr>
+    <td width="30%" valign="top"><b><%= t :"global_addons" %>:</b></td>
+    <td width="70%"><% @addons.each do |addon| %><%= addon.name %><br><% end %></td>
+  </tr>
+</table>
+
+<br><br>
+
+<%= link_to t(:"global_edit"), :action => 'edit', :id => @contract %><br><br>
+<b><%= t :"global_mail_documents" %>:</b><br><br>
+<ul>
+<% for document in @contract.room.documents %>
+<li><%= link_to document.name, { :action => "send_document" , :id => document.id, :contract_id => @contract.id} %></li>
+<% end %>
+</ul>

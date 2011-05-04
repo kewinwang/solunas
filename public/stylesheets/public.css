@@ -1,0 +1,76 @@
+#calendar_av {
+width: 15px;
+background-color: green;
+color: white;
+font-weight: bold;
+padding: 0px;
+margin: 0px;
+}
+
+#calendar_not_av {
+width: 15px;
+background-color: #c0c0c0;
+color: white;
+font-weight: bold;
+padding: 0px;
+margin: 0px;
+}
+#calendar_arrival {
+width: 11px;
+background-color: green;
+color: white;
+font-weight: bold;
+padding: 0px;
+margin: 0px;
+border-right: 4px solid #c0c0c0;
+}
+#calendar_departure {
+width: 11px;
+background-color: green;
+color: white;
+font-weight: bold;
+padding: 0px;
+margin: 0px;
+border-left: 4px solid #c0c0c0;
+}
+#calendar {
+width: 15px;
+border: 0px solid #c0c0c0;
+}
+ {
+text-decoration: none;
+color: #175c6b;
+}
+tr {
+font-family: Verdana, Arial, Helvetica, sans-serif;
+font-size: 11px;
+}
+h1 {
+color: #eb8137;
+font-family: Verdana, Arial, Helvetica, sans-serif;
+font-size: 16px;
+}
+input {
+border: 1px solid #c0c0c0;
+}
+body {
+background-color: white;
+padding: 10px;
+font-family: Verdana, Arial, Helvetica, sans-serif;
+font-size: 11px;
+}
+a {
+text-decoration: none;
+color: #175c6b;
+}
+.errorExplanation {
+padding: 10px;
+margin: 10px;
+border: 1px dotted #eb8137;
+background-color: #FFFBF0;
+}
+.errorExplanation h2{
+color: #eb8137;
+font-family: Verdana, Arial, Helvetica, sans-serif;
+font-size: 14px;
+}

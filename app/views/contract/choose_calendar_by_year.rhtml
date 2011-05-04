@@ -1,0 +1,31 @@
+
+<% form_remote_tag  :url => {:action => :show_calendar_by_year, :controller => :contract},
+                    :update => "update_div",
+                    :before => %(Element.show('spinner_1');Element.hide('submit_1');),
+                    :success => %(Element.hide('spinner_1');Element.show('submit_1');) do |f| %>
+
+<p>
+
+  <b><%= t :"global_year" %>:</b>
+
+  <select name="year">
+   <% (Time.now.year .. Time.now.year+15).each do |year| %>
+       <option value="<%= year %>">
+         <%= year %>
+       </option>
+   <% end %>
+  </select>
+
+  <b>Room:</b>
+  <select name="room_id">
+   <% @rooms.each do |room| %>
+       <option value="<%= room.id %>">
+         <%= room.property.name %> - <%= room.name %>
+       </option>
+   <% end %>
+  </select>
+
+  <%= submit_tag t(:"global_go"), {:id => :submit_1} %>
+<% end %>
+
+<%= image_tag 'spinner.gif', :id => 'spinner_1', :style => 'display:none' %>

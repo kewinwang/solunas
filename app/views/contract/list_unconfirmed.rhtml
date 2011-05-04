@@ -1,0 +1,40 @@
+<h1><%= t :"contract.list_unconfirmed.header" %></h1>
+<%= t :"contract.list_unconfirmed.note", :bold_open => "<b>", :bold_close => "</b>" %>
+<br />
+<table>
+  <tr>
+  <td id="listitem"><b>Name</b></td>
+  <td id="listitem"><b>Arrival</b></td>
+  <td id="listitem"><b>Departure</b></td>
+  
+  </tr>
+
+<% if @contracts %>
+<% for contract in @contracts %>
+  <tr>
+  <td id="listitem" width="40%"><%= contract.customer.name %></td>
+  <td id="listitem" width="10%"><%= contract.arrival.strftime(@user.datestring) %></td>
+  <td id="listitem" width="10%"><%= contract.departure.strftime(@user.datestring) %></td>
+  
+    <td width="40%">| <%= link_to t(:"global_confirm"), { :action => 'confirm_public', :id => contract } %>
+    | <%= link_to t(:"global_show"), :action => 'show', :id => contract %>
+    | <%= link_to t(:"global_edit"), :action => 'edit', :id => contract %>
+    | <%= link_to t(:"global_destroy"), { :action => 'destroy', :id => contract },
+                        :confirm => t("global_are_you_sure") %></td>
+  </tr>
+<% end %>
+</table>
+<br />
+<div class="roundedcornr_box_284975">
+   <div class="roundedcornr_top_284975"><div></div></div>
+      <div class="roundedcornr_content_284975"><p>
+<%= will_paginate @contracts %>
+
+<% end %>
+<br /><br />
+
+<%= link_to t("contract.new"), :action => 'new' %>
+</p>
+      </div>
+   <div class="roundedcornr_bottom_284975"><div></div></div>
+</div>

@@ -1,0 +1,36 @@
+<h1>Register as a new Solunas user</h1>
+And be one of <b><%= @user_count %></b> Solunas users since 22 August 2006.<br><br>
+<% @page_title = "Register as a new Solunas user" -%>
+<%= error_messages_for 'user' %>
+
+<%= form_tag %>
+
+<table>
+  <tr>
+    <td><%= "User name".t %>:</td>
+    <td><%= text_field("user", "name") %></td>
+  </tr>
+  <tr>
+    <td><%= "Password".t %>:</td>
+    <td><%= password_field("user", "password") %></td>
+  </tr>
+  <tr>
+    <td><%= "Homepage".t %>:</td>
+    <td><input id="user_homepage" name="user[homepage]" size="30" type="text" value="http://" /></td>
+  </tr>
+  <tr>
+    <td><%= "E-Mail".t %>:</td>
+    <td><%= text_field("user", "email") %></td>
+  </tr>
+  <tr>
+    <td><%= "Premium Service".t %>:</td>
+    <td><%= check_box("user", "premium",{},"1","0") %></td>
+  </tr>
+
+  <tr>
+    <td></td>
+    <td><input type="submit" value=<%= " REGISTER ".t %> /></td>
+  </tr>
+</table>
+
+<%= end_form_tag %>

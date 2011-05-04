@@ -1,0 +1,8 @@
+<h1>Editing customer</h1>
+
+<% form_tag :action => :update, :id => @customer do |f| %>
+  <%= render :partial => 'form' %>
+  <%= submit_tag 'Edit' %>
+<% end %>
+
+

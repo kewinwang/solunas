@@ -1,0 +1,2 @@
+module LocalizeHelper
+end

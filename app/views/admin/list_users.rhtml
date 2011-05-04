@@ -1,0 +1,28 @@
+<h1><%= t :"admin.list_users.header" %></h1>
+
+<% @page_title = "User List" -%>
+<table>
+<tr>
+  <td id="listitem"><b><%= t :"global_name" %></b></td>
+  <td id="listitem"><b><%= t :"admin.homepage" %></b></td>
+  <td id="listitem"><b><%= t :"global_email" %></b></td>
+  <td id="listitem"><b><%= link_to(t(:"admin.last_login"),
+                              {:controller => :admin, :action => :list_users, :order => "updated_at DESC"}) %></td>
+  <td id="listitem"></td>
+  <td id="listitem"></td>
+</tr>
+<% for user in @all_users -%>
+<tr>
+  <td id="listitem"><%= user.name %></td>
+  <td id="listitem"><a href="<%= user.homepage %>"><%= user.homepage %></a></td>
+  <td id="listitem"><%= user.email %></td>
+  <td id="listitem"><%= user.updated_at.strftime(user.datestring) %></td>
+  <td id="listitem"><%= link_to(t(:"global_destroy"), {:action => :delete_user, :id => user.id}) %></td>
+  <td id="listitem"><%= link_to(t(:"global_edit"), {:action => :edit, :id => user.id}) %></td>
+</tr>
+<% end -%>
+
+
+</table><br><br>
+
+<%= will_paginate @all_users %>

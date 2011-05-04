@@ -1,0 +1,8 @@
+<h1><%= t :"user_admin.header" %></h1>
+
+<% form_tag :action => :update, :id => @user do |f| %>
+  <%= render :partial => 'form' %>
+  <%= submit_tag  t :"global_edit" %>
+<% end %>
+
+

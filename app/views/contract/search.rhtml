@@ -1,0 +1,7 @@
+<h1><%= t :"contract.search.header" %></h1>
+<%= t :"contract.search.note" %><br><br>
+<% form_tag :action => :list do |f| %>
+  <%= text_field_tag 'search', ''  %>
+  
+  <%= submit_tag t(:"global_search") %>
+<% end %>

@@ -1,0 +1,29 @@
+<h1><%= t :"admin.list_users.header" %></h1>
+
+<% @page_title = "User List" -%>
+<table>
+<tr>
+  <td id="listitem"><b><%= t :"global_name" %></b></td>
+  <td id="listitem"><b><%= t :"admin.premium_status" %></b></td>
+  <td id="listitem"><b><%= t :"global_name" %></b></td>
+  <td id="listitem"><b><%= t :"global_email" %></b></td>
+  <td id="listitem"></td>
+  <td id="listitem"></td>
+  <td id="listitem"></td>
+</tr>
+<% for user in @all_users -%>
+<tr>
+  <td id="listitem"><%= user.name %></td>
+  <td id="listitem"><%= user.premium %></td>
+  <td id="listitem"><%= user.homepage %></td>
+  <td id="listitem"><%= user.email %></td>
+  <td id="listitem"><%= link_to(t(:"global_confirm"), {:action => :confirm_user, :id => user.id}) %></td>
+  <td id="listitem"><%= link_to(t(:"global_delete"), {:action => :delete_user, :id => user.id}) %></td>
+  <td id="listitem"><%= link_to(t(:"global_edit"), {:action => :edit, :id => user.id}) %></td>
+</tr>
+<% end -%>
+
+
+</table><br><br>
+
+<%= will_paginate @all_users %>

@@ -1,0 +1,13 @@
+<h1>Detailed customer information</h1>
+
+<% for column in Customer.content_columns %>
+<p>
+  <b><%= column.human_name %>:</b> <%=h @customer.send(column.name) %>
+</p>
+<% end %>
+
+<%= link_to 'Edit', :action => 'edit', :id => @customer %> | 
+<%= link_to 'New Contract', :action => 'new', :controller => 'contract', :id => @customer %> |
+<%= link_to 'List Contracts', :action => 'list', :controller => 'contract', :customer_id => @customer.id %> |
+<%= link_to 'Add Note', :action => 'new', :controller => 'note', :customer_id => @customer.id %> |
+<%= link_to 'List Notes', :action => 'list', :controller => 'note', :customer_id => @customer.id %>

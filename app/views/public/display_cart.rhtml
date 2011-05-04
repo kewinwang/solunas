@@ -1,0 +1,38 @@
+<h1><%= "Your bookings".t %></h1>
+
+
+<table style="border: 1px solid #c0c0c0; width: 600px;">
+  <tr>
+    <td width="12%"><b><%= "Property".t %></b></td>
+    <td width="13%"><b><%= "Room".t %></b></td>
+    <td width="12%"><b><%= "Total Price".t %></b></td>
+    <td width="13%"><b><%= "Arrival".t %></b></td>
+    <td width="12%"><b><%= "Departure".t %></b></td>
+    <td width="13%"><b><%= "Adults".t %></b></td>
+    <td width="12%"><b><%= "Children".t %></b></td>
+    <td width="13%"><b><%= "Action".t %></b></td>
+  </tr>
+
+<% @cart.items.each do |item| %>
+<tr>
+    <td width="12%"><%= item.room.property.name %></td>
+    <td width="13%"><%= item.room.name %></td>
+    <td width="12%"><%= fmt_currency_public(item.total) %></td>
+    <td width="13%"><%= item.arrival.strftime(@user.datestring) %></td>
+    <td width="12%"><%= item.departure.strftime(@user.datestring) %></td>
+    <td width="13%"><%= item.adults %></td>
+    <td width="12%"><%= item.children %></td>
+    <td width="13%"><%= link_to 'delete'.t, {:action => 'delete_cart_item', :cart_item_id => item.item_id} %></td>
+  </tr>
+<tr>
+    <td width="100%" colspan="7"><%= "Including".t %>:
+    <% item.addons.each do |addon| %> <%= addon.name %> <% end %></td>
+ </tr>
+<% end %>
+</table>
+<br>
+
+<b><%= "Total amount".t %>: <%= fmt_currency_public(@cart.total_price) %> <br><br>
+<%= link_to 'Add more bookings'.t, {:action => 'show_form'} %> |
+<%= link_to 'Empty cart'.t, {:action => 'empty_cart'} %> |
+<%= link_to 'Checkout'.t, {:action => 'checkout'} %>

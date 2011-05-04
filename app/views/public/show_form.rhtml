@@ -1,0 +1,58 @@
+<h1><%= "Book your room".t %></h1>
+
+<%= stylesheet_link_tag "calendar-win2k-1" %>
+<%= javascript_include_tag "jscalendar/calendar" %>
+<%= javascript_include_tag "jscalendar/lang/calendar-en" %>
+<%= javascript_include_tag "jscalendar/calendar-setup" %>
+<% if @errors && !@errors.empty? %>
+<ul>
+<% for error in @errors %>
+<li><p><%= error %></p></li>
+<% end %>
+</ul>
+<% end %>
+
+
+
+<%= start_form_tag :action => 'show_rooms' %>
+
+  <table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="13%"><%= "Arrival".t %>:</td>
+    <td width="87%"><%= text_field_tag(:arrival,@params[:arrival], :size => 20) %><button type="reset" id="arrivalb">...</button></td>
+  </tr>
+  <script type="text/javascript">
+    Calendar.setup({
+        inputField     :    "arrival",      // id of the input field
+        ifFormat       :    "<%= @user.datestring %>",       // format of the input field
+        showsTime      :    false,            // will display a time selector
+        button         :    "arrivalb",   // trigger for the calendar (button ID)
+        singleClick    :    true,           // double-click mode
+        step           :    1                // show all years in drop-down boxes (instead of every other year as default)
+    });
+</script>
+  <tr>
+    <td width="13%"><%= "Departure".t %>:</td>
+    <td width="87%"><%= text_field_tag(:departure,@params[:departure], :size => 20) %><button type="reset" id="departureb">...</button></td>
+  </tr>
+  <script type="text/javascript">
+    Calendar.setup({
+        inputField     :    "departure",      // id of the input field
+        ifFormat       :    "<%= @user.datestring %>",       // format of the input field
+        showsTime      :    false,            // will display a time selector
+        button         :    "departureb",   // trigger for the calendar (button ID)
+        singleClick    :    true,           // double-click mode
+        step           :    1                // show all years in drop-down boxes (instead of every other year as default)
+    });
+</script>
+  <tr>
+    <td width="13%"><%= "Adults".t %>:</td>
+    <td width="87%"><%= max_adult_select %></td>
+  </tr>
+  <tr>
+    <td width="13%"><%= "Children".t %>:</td>
+    <td width="87%"><%= max_children_select %></td>
+  </tr>
+</table>
+  <%= submit_tag "Search".t %>
+<%= end_form_tag %>
